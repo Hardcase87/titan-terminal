@@ -1,8 +1,18 @@
-# 💀 TITAN TERMINAL
+<center>
 
-## Tactical Terror Division
+<h1>💀 TITAN TERMINAL</h1>
 
-### VHS Radicalised 80s/90s Muscle, Mayhem & Money
+<h2>Tactical Terror Division</h2>
+
+<p>
+VHS Radicalised 80s/90s Muscle, Mayhem & Money
+</p>
+
+<p>
+🚧 Version 0.1
+</p>
+
+</center>
 
 ---
 
