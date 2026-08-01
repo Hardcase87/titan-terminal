@@ -10,7 +10,7 @@
 
     <meta
         name="description"
-        content="Interactive district map of Titan City."
+        content="Interactive district map and database of Titan City."
     >
 
     <meta name="theme-color" content="#090909">
@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <main class="site-shell">
+    <main class="site-shell" id="top">
 
         <header class="terminal-header">
             <div class="terminal-label">
@@ -58,7 +58,7 @@
                 </span>
 
                 <span class="version warning-status">
-                    District Files Restricted
+                    14 District Files Detected
                 </span>
             </div>
         </header>
@@ -68,31 +68,91 @@
 
             <strong>CITY NETWORK:</strong>
 
-            Nutrition District file available. Additional districts deploying.
+            Nutrition District and Skull Plaza online.
+            Additional district files awaiting deployment.
         </div>
 
         <section class="map-terminal">
 
             <div class="map-command-bar">
                 <span>MAP_MODE: DISTRICTS</span>
-                <span>ACTIVE_FILES: 01</span>
+                <span>ACTIVE_FILES: 02</span>
+                <span>PENDING_FILES: 12</span>
                 <span>ZOOM: AVAILABLE</span>
             </div>
 
             <div class="interactive-map">
 
                 <img
-                    src="titan-city-map.PNG"
-                    alt="Map of Titan City"
+                    src="titan-city-map.png"
+                    alt="Interactive map of Titan City"
                     class="city-map-image"
                 >
+
+                <!-- TITAN SPIRE -->
+
+                <span
+                    class="map-point titan-spire-point map-point-pending"
+                    aria-label="Titan Spire file pending"
+                >
+                    <span class="map-pulse pending-pulse"></span>
+
+                    <span class="map-label">
+                        TITAN SPIRE
+                        <small>FILE PENDING</small>
+                    </span>
+                </span>
+
+                <!-- VHS QUARTER -->
+
+                <span
+                    class="map-point vhs-quarter-point map-point-pending"
+                    aria-label="VHS Quarter file pending"
+                >
+                    <span class="map-pulse pending-pulse"></span>
+
+                    <span class="map-label">
+                        VHS QUARTER
+                        <small>FILE PENDING</small>
+                    </span>
+                </span>
+
+                <!-- TITAN HEIGHTS -->
+
+                <span
+                    class="map-point titan-heights-point map-point-pending"
+                    aria-label="Titan Heights file pending"
+                >
+                    <span class="map-pulse pending-pulse"></span>
+
+                    <span class="map-label gold-label">
+                        TITAN HEIGHTS
+                        <small>FILE PENDING</small>
+                    </span>
+                </span>
+
+                <!-- MILITARY ZONE -->
+
+                <span
+                    class="map-point military-zone-point map-point-pending"
+                    aria-label="Military Zone file pending"
+                >
+                    <span class="map-pulse pending-pulse"></span>
+
+                    <span class="map-label">
+                        MILITARY ZONE
+                        <small>RESTRICTED FILE</small>
+                    </span>
+                </span>
+
+                <!-- NUTRITION DISTRICT — ACTIVE -->
 
                 <a
                     class="map-point nutrition-point"
                     href="nutrition-district.html"
                     aria-label="Open Nutrition District"
                 >
-                    <span class="map-pulse"></span>
+                    <span class="map-pulse green-pulse"></span>
 
                     <span class="map-label">
                         NUTRITION DISTRICT
@@ -100,83 +160,242 @@
                     </span>
                 </a>
 
+                <!-- SKULL JUICE FACTORY -->
+
+                <span
+                    class="map-point skull-juice-factory-point map-point-pending"
+                    aria-label="Skull Juice Factory file pending"
+                >
+                    <span class="map-pulse pending-pulse"></span>
+
+                    <span class="map-label">
+                        SKULL JUICE FACTORY
+                        <small>MUTAGEN WARNING</small>
+                    </span>
+                </span>
+
+                <!-- MEDIA DISTRICT -->
+
+                <span
+                    class="map-point media-district-point map-point-pending"
+                    aria-label="Media District file pending"
+                >
+                    <span class="map-pulse pending-pulse"></span>
+
+                    <span class="map-label pink-label">
+                        MEDIA DISTRICT
+                        <small>FILE PENDING</small>
+                    </span>
+                </span>
+
+                <!-- SKULL PLAZA — ACTIVE -->
+
+                <a
+                    class="map-point skull-plaza-point"
+                    href="skull-plaza.html"
+                    aria-label="Open Skull Plaza"
+                >
+                    <span class="map-pulse pink-pulse"></span>
+
+                    <span class="map-label pink-label">
+                        SKULL PLAZA
+                        <small>FILE AVAILABLE</small>
+                    </span>
+                </a>
+
+                <!-- CHURCH -->
+
+                <span
+                    class="map-point church-point map-point-pending"
+                    aria-label="Titan City Church file pending"
+                >
+                    <span class="map-pulse pending-pulse"></span>
+
+                    <span class="map-label">
+                        TITAN CITY CHURCH
+                        <small>FILE PENDING</small>
+                    </span>
+                </span>
+
+                <!-- PENITENTIARY -->
+
+                <span
+                    class="map-point penitentiary-point map-point-pending"
+                    aria-label="Titan City Penitentiary file pending"
+                >
+                    <span class="map-pulse pending-pulse"></span>
+
+                    <span class="map-label blue-label">
+                        TITAN CITY PENITENTIARY
+                        <small>MAXIMUM SECURITY</small>
+                    </span>
+                </span>
+
+                <!-- FINANCIAL DISTRICT -->
+
+                <span
+                    class="map-point financial-district-point map-point-pending"
+                    aria-label="Financial District file pending"
+                >
+                    <span class="map-pulse pending-pulse"></span>
+
+                    <span class="map-label">
+                        FINANCIAL DISTRICT
+                        <small>FILE PENDING</small>
+                    </span>
+                </span>
+
+                <!-- TITAN TREASURY -->
+
+                <span
+                    class="map-point titan-treasury-point map-point-pending"
+                    aria-label="Titan Treasury file pending"
+                >
+                    <span class="map-pulse pending-pulse"></span>
+
+                    <span class="map-label gold-label">
+                        TITAN TREASURY
+                        <small>SECURITY ACTIVE</small>
+                    </span>
+                </span>
+
+                <!-- TITAN BALL ARENA -->
+
+                <span
+                    class="map-point titan-ball-arena-point map-point-pending"
+                    aria-label="Titan Ball Arena file pending"
+                >
+                    <span class="map-pulse pending-pulse"></span>
+
+                    <span class="map-label pink-label">
+                        TITAN BALL ARENA
+                        <small>FILE PENDING</small>
+                    </span>
+                </span>
+
+                <!-- DOCKS -->
+
+                <span
+                    class="map-point docks-point map-point-pending"
+                    aria-label="Titan City Docks file pending"
+                >
+                    <span class="map-pulse pending-pulse"></span>
+
+                    <span class="map-label blue-label label-left">
+                        TITAN CITY DOCKS
+                        <small>FILE PENDING</small>
+                    </span>
+                </span>
+
             </div>
 
             <div class="map-instructions">
-                <strong>ACTIVE LOCATION:</strong>
-                Tap the pulsing green marker inside Nutrition District.
+                <strong>MAP COMMAND:</strong>
+
+                Bright green and pink markers are active.
+                Dim markers represent district files awaiting deployment.
             </div>
 
         </section>
 
         <section class="section">
             <div class="section-code">
-                DISTRICT DATABASE // DEPLOYING
+                DISTRICT DATABASE // CITYWIDE
             </div>
 
-            <h2>🏙️ Titan City Districts</h2>
+            <h2>🏙️ District Files</h2>
 
-            <div class="project-grid">
+            <div class="district-database-grid">
 
                 <a
-                    class="project-card district-card district-online"
+                    class="district-database-card district-file-online"
                     href="nutrition-district.html"
                 >
-                    <span class="project-icon">🥤</span>
-
-                    <h3>Nutrition District</h3>
-
-                    <p>
-                        Skull Juice, mutant fuel, supplement laboratories
-                        and Titan-scale nutrition.
-                    </p>
-
-                    <span class="project-state online">
-                        File Online
-                    </span>
+                    <span>🥤</span>
+                    <strong>Nutrition District</strong>
+                    <small>FILE ONLINE</small>
                 </a>
 
-                <article class="project-card district-locked">
-                    <span class="project-icon">📼</span>
+                <a
+                    class="district-database-card district-file-online"
+                    href="skull-plaza.html"
+                >
+                    <span>💀</span>
+                    <strong>Skull Plaza</strong>
+                    <small>FILE ONLINE</small>
+                </a>
 
-                    <h3>VHS Quarter</h3>
+                <div class="district-database-card">
+                    <span>📼</span>
+                    <strong>VHS Quarter</strong>
+                    <small>FILE PENDING</small>
+                </div>
 
-                    <p>
-                        Old school. Badass. Unforgettable.
-                    </p>
+                <div class="district-database-card">
+                    <span>🏙️</span>
+                    <strong>Titan Heights</strong>
+                    <small>FILE PENDING</small>
+                </div>
 
-                    <span class="project-state">
-                        File Locked
-                    </span>
-                </article>
+                <div class="district-database-card">
+                    <span>🗼</span>
+                    <strong>Titan Spire</strong>
+                    <small>FILE PENDING</small>
+                </div>
 
-                <article class="project-card district-locked">
-                    <span class="project-icon">💀</span>
+                <div class="district-database-card">
+                    <span>🪖</span>
+                    <strong>Military Zone</strong>
+                    <small>RESTRICTED</small>
+                </div>
 
-                    <h3>Skull Plaza</h3>
+                <div class="district-database-card">
+                    <span>📡</span>
+                    <strong>Media District</strong>
+                    <small>FILE PENDING</small>
+                </div>
 
-                    <p>
-                        Heart of the city. Strength in stone.
-                    </p>
+                <div class="district-database-card">
+                    <span>💵</span>
+                    <strong>Financial District</strong>
+                    <small>FILE PENDING</small>
+                </div>
 
-                    <span class="project-state">
-                        File Locked
-                    </span>
-                </article>
+                <div class="district-database-card">
+                    <span>🏦</span>
+                    <strong>Titan Treasury</strong>
+                    <small>SECURITY ACTIVE</small>
+                </div>
 
-                <article class="project-card district-locked">
-                    <span class="project-icon">📡</span>
+                <div class="district-database-card">
+                    <span>🏟️</span>
+                    <strong>Titan Ball Arena</strong>
+                    <small>FILE PENDING</small>
+                </div>
 
-                    <h3>Media District</h3>
+                <div class="district-database-card">
+                    <span>⛪</span>
+                    <strong>Titan City Church</strong>
+                    <small>FILE PENDING</small>
+                </div>
 
-                    <p>
-                        The broadcast never stops.
-                    </p>
+                <div class="district-database-card">
+                    <span>⛓️</span>
+                    <strong>Penitentiary</strong>
+                    <small>MAXIMUM SECURITY</small>
+                </div>
 
-                    <span class="project-state">
-                        File Locked
-                    </span>
-                </article>
+                <div class="district-database-card">
+                    <span>🏭</span>
+                    <strong>Skull Juice Factory</strong>
+                    <small>MUTAGEN WARNING</small>
+                </div>
+
+                <div class="district-database-card">
+                    <span>⚓</span>
+                    <strong>Titan City Docks</strong>
+                    <small>FILE PENDING</small>
+                </div>
 
             </div>
         </section>
@@ -190,7 +409,8 @@
 
         <p class="footer-copy">
             Tactical Terror Division Cartography Division<br>
-            District Database Version 0.1<br>
+            Interactive District Database Version 0.2<br>
+            Active District Files: 02 / 14<br>
             © 2026 Tactical Terror Division
         </p>
 
