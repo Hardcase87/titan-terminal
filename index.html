@@ -905,6 +905,194 @@
 
         setInterval(updateTitanClock, 1000);
     </script>
+<!-- TITAN CITY INTELLIGENCE SCRIPT -->
 
+<script>
+
+const classifiedFiles = [
+{
+number:"FILE 087",
+title:"Operation Black Ooze",
+briefing:"Unmarked TDI containers detected beneath Skull Plaza. Hardcase ’87 has been ordered to investigate."
+},
+{
+number:"FILE 199",
+title:"The Missing Mascots",
+briefing:"Four Titan Ball mascots vanished after entering Dex Volt's private training facility."
+},
+{
+number:"FILE 404",
+title:"Mutant Not Found",
+briefing:"Nutrition District tracking systems lost contact with a seven-foot cereal-based lifeform."
+},
+{
+number:"FILE 666",
+title:"Church of Gains",
+briefing:"Unlicensed midnight deadlifts detected beneath Titan City Church. Congregation strength increasing."
+},
+{
+number:"FILE 001",
+title:"Disaster in the Skies",
+briefing:"Con Casino blimp debris contains unidentified TDI cargo. Mutagen confirmed."
+}
+];
+
+const titanWeatherReports=[
+{
+icon:"☣️",
+weather:"Acid Rain • 34°C",
+warning:"Mutagen levels elevated. Outdoor training remains mandatory."
+},
+{
+icon:"⚡",
+weather:"Neon Storm • 29°C",
+warning:"Electrical interference reported around Titan Spire."
+},
+{
+icon:"🔥",
+weather:"Toxic Heat • 41°C",
+warning:"Skull Juice hydration advisory active."
+},
+{
+icon:"🌫️",
+weather:"Mutant Fog • 22°C",
+warning:"Visibility reduced around the Docks."
+},
+{
+icon:"🌩️",
+weather:"Plasma Thunder • 31°C",
+warning:"Titan Heights air traffic redirected."
+}
+];
+
+const securityCameras=[
+{
+location:"CAM-07 // SKULL PLAZA",
+message:"Public activity high. Monument zone secure."
+},
+{
+location:"CAM-19 // NUTRITION DISTRICT",
+message:"Green vapour detected behind Skull Juice loading bay."
+},
+{
+location:"CAM-03 // VHS QUARTER",
+message:"Night Owls entering video store after closing."
+},
+{
+location:"CAM-12 // MILITARY ZONE",
+message:"Restricted convoy preparing for deployment."
+},
+{
+location:"CAM-31 // DOCKS",
+message:"Unknown container unloaded."
+},
+{
+location:"CAM-44 // TITAN TREASURY",
+message:"Security shutters engaged."
+}
+];
+
+const titanAlerts=[
+{
+title:"Unauthorized Mutant Detected",
+message:"Movement recorded inside Military Zone."
+},
+{
+title:"Skull Juice Pressure Failure",
+message:"Factory tank seven exceeded safe pressure."
+},
+{
+title:"Hardcase Activity Warning",
+message:"Excessive property damage reported."
+},
+{
+title:"Alien Signal Detected",
+message:"Encrypted transmission received above Titan Heights."
+},
+{
+title:"Titan Ball Security Incident",
+message:"Dex Volt entered referee operations."
+},
+{
+title:"Con Casino Debris Shift",
+message:"Movement detected beneath wreckage."
+}
+];
+
+function randomItem(arr){
+return arr[Math.floor(Math.random()*arr.length)];
+}
+
+const file=randomItem(classifiedFiles);
+
+document.getElementById("classified-file-number").textContent=file.number;
+document.getElementById("classified-title").textContent=file.title;
+document.getElementById("classified-briefing").textContent=file.briefing;
+
+const weather=randomItem(titanWeatherReports);
+
+document.getElementById("weather-icon").textContent=weather.icon;
+document.getElementById("titan-weather").textContent=weather.weather;
+document.getElementById("weather-warning").textContent=weather.warning;
+
+let camera=0;
+
+function updateCamera(){
+
+const cam=securityCameras[camera];
+
+document.getElementById("camera-location").textContent=cam.location;
+
+document.getElementById("camera-message").textContent=cam.message;
+
+camera=(camera+1)%securityCameras.length;
+
+}
+
+updateCamera();
+
+setInterval(updateCamera,7000);
+
+document.getElementById("camera-cycle-button").onclick=updateCamera;
+
+function updateCameraClock(){
+
+document.getElementById("camera-timestamp").textContent=
+new Date().toLocaleTimeString("en-AU",{hour12:false});
+
+}
+
+updateCameraClock();
+
+setInterval(updateCameraClock,1000);
+
+function updateAlert(){
+
+const alert=randomItem(titanAlerts);
+
+document.getElementById("system-alert-title").textContent=alert.title;
+
+document.getElementById("system-alert-message").textContent=alert.message;
+
+}
+
+updateAlert();
+
+setInterval(updateAlert,12000);
+
+let visitors=8742;
+
+function updateVisitors(){
+
+visitors+=Math.floor(Math.random()*4);
+
+document.getElementById("terminal-visitors").textContent=
+visitors.toLocaleString("en-AU");
+
+}
+
+setInterval(updateVisitors,5000);
+
+</script>
 </body>
 </html>
