@@ -2758,3 +2758,426 @@ font-size:13px;
 }
 
 }
+/* =====================================================
+   TITAN CITY INTELLIGENCE NETWORK
+   ===================================================== */
+
+.intelligence-grid {
+    width: min(1100px, calc(100% - 40px));
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+    margin: 22px auto 45px;
+}
+
+.intel-panel {
+    position: relative;
+    overflow: hidden;
+    min-height: 270px;
+    padding: 22px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(27, 27, 27, 0.98),
+            rgba(7, 7, 7, 0.99)
+        );
+    border: 1px solid rgba(255, 20, 147, 0.38);
+    border-radius: 11px;
+    box-shadow:
+        0 16px 34px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.intel-panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    width: 76%;
+    height: 2px;
+    background: var(--green);
+    box-shadow: 0 0 11px var(--green);
+}
+
+.intel-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 3px,
+        rgba(255, 255, 255, 0.25) 4px
+    );
+}
+
+.classified-panel {
+    grid-column: span 3;
+}
+
+.weather-panel {
+    grid-column: span 3;
+}
+
+.camera-panel,
+.alert-panel,
+.visitor-panel {
+    grid-column: span 2;
+}
+
+.intel-code {
+    position: relative;
+    z-index: 2;
+    color: var(--pink);
+    margin-bottom: 16px;
+    font-family: "Share Tech Mono", monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 7px rgba(255, 20, 147, 0.65);
+}
+
+.intel-panel h2 {
+    position: relative;
+    z-index: 2;
+    margin: 9px 0 14px;
+    color: var(--green);
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(20px, 3vw, 28px);
+    line-height: 1.15;
+    text-transform: uppercase;
+    text-shadow:
+        0 0 7px rgba(124, 252, 0, 0.72),
+        0 0 18px rgba(124, 252, 0, 0.24);
+}
+
+.intel-panel p {
+    position: relative;
+    z-index: 2;
+    color: var(--muted);
+    margin-bottom: 18px;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+.classified-file-number {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    color: #080808;
+    background: var(--pink);
+    padding: 7px 11px;
+    border-radius: 5px;
+    font-family: "Share Tech Mono", monospace;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.intel-status {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    color: var(--green);
+    padding: 8px 11px;
+    border: 1px solid rgba(124, 252, 0, 0.52);
+    border-radius: 5px;
+    font-family: "Share Tech Mono", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.warning-intel {
+    color: #ffd447;
+    border-color: rgba(255, 212, 71, 0.6);
+}
+
+.alert-intel {
+    color: #ff5656;
+    border-color: rgba(255, 86, 86, 0.65);
+}
+
+.weather-icon,
+.alert-symbol {
+    position: relative;
+    z-index: 2;
+    font-size: 42px;
+    filter: drop-shadow(0 0 9px rgba(124, 252, 0, 0.45));
+}
+
+.camera-screen {
+    position: relative;
+    z-index: 2;
+    min-height: 170px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 16px;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(124, 252, 0, 0.11),
+            transparent 55%
+        ),
+        #050705;
+    border: 1px solid rgba(124, 252, 0, 0.48);
+    border-radius: 7px;
+    box-shadow:
+        inset 0 0 32px rgba(0, 0, 0, 0.85),
+        0 0 15px rgba(124, 252, 0, 0.08);
+}
+
+.camera-noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.09;
+    pointer-events: none;
+    background:
+        repeating-radial-gradient(
+            circle at 17% 32%,
+            rgba(255, 255, 255, 0.6) 0,
+            transparent 1px,
+            transparent 4px
+        );
+    animation: cameraNoise 0.22s steps(2) infinite;
+}
+
+.camera-recording {
+    position: absolute;
+    top: 11px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #ff5656;
+    font-family: "Share Tech Mono", monospace;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.recording-light {
+    width: 8px;
+    height: 8px;
+    background: #ff4545;
+    border-radius: 50%;
+    box-shadow: 0 0 9px #ff4545;
+    animation: recordingPulse 1s infinite;
+}
+
+.camera-location,
+.camera-message,
+.camera-timestamp {
+    position: relative;
+    z-index: 2;
+    font-family: "Share Tech Mono", monospace;
+}
+
+.camera-location {
+    color: var(--green);
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.camera-message {
+    color: var(--white);
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.camera-timestamp {
+    color: var(--pink);
+    font-size: 10px;
+}
+
+.intel-button {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    margin-top: 12px;
+    padding: 11px 12px;
+    color: var(--pink);
+    background: #0b0b0b;
+    border: 1px solid var(--pink);
+    border-radius: 6px;
+    font-family: "Orbitron", sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.intel-button:hover,
+.intel-button:focus {
+    color: #080808;
+    background: var(--pink);
+    box-shadow: 0 0 17px rgba(255, 20, 147, 0.48);
+    outline: none;
+}
+
+.visitor-number {
+    position: relative;
+    z-index: 2;
+    color: var(--green);
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(38px, 6vw, 58px);
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow:
+        0 0 8px rgba(124, 252, 0, 0.85),
+        0 0 24px rgba(124, 252, 0, 0.38);
+}
+
+.visitor-bars {
+    position: relative;
+    z-index: 2;
+    height: 46px;
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    margin-top: 18px;
+}
+
+.visitor-bars span {
+    flex: 1;
+    min-height: 8px;
+    background: linear-gradient(
+        to top,
+        var(--pink),
+        var(--green)
+    );
+    box-shadow: 0 0 7px rgba(124, 252, 0, 0.35);
+    animation: visitorBars 1.7s ease-in-out infinite alternate;
+}
+
+.visitor-bars span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.visitor-bars span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.visitor-bars span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.visitor-bars span:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+.visitor-bars span:nth-child(6) {
+    animation-delay: 1s;
+}
+
+.visitor-bars span:nth-child(7) {
+    animation-delay: 1.2s;
+}
+
+.visitor-bars span:nth-child(8) {
+    animation-delay: 1.4s;
+}
+
+.intel-refresh {
+    animation: intelRefresh 0.48s ease;
+}
+
+@keyframes cameraNoise {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(2px, -1px);
+    }
+
+    100% {
+        transform: translate(-1px, 2px);
+    }
+}
+
+@keyframes recordingPulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.25;
+    }
+}
+
+@keyframes visitorBars {
+    from {
+        height: 18%;
+    }
+
+    to {
+        height: 100%;
+    }
+}
+
+@keyframes intelRefresh {
+    0% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(2);
+    }
+
+    100% {
+        filter: brightness(1);
+    }
+}
+
+@media (max-width: 850px) {
+    .classified-panel,
+    .weather-panel {
+        grid-column: span 6;
+    }
+
+    .camera-panel,
+    .alert-panel,
+    .visitor-panel {
+        grid-column: span 3;
+    }
+
+    .visitor-panel {
+        grid-column: 2 / span 4;
+    }
+}
+
+@media (max-width: 600px) {
+    .intelligence-grid {
+        width: min(100% - 24px, 1100px);
+        grid-template-columns: 1fr;
+    }
+
+    .classified-panel,
+    .weather-panel,
+    .camera-panel,
+    .alert-panel,
+    .visitor-panel {
+        grid-column: auto;
+    }
+
+    .intel-panel {
+        min-height: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .camera-noise,
+    .recording-light,
+    .visitor-bars span {
+        animation: none;
+    }
+}
