@@ -2511,3 +2511,131 @@ h2,
         animation: none;
     }
 }
+/* =====================================================
+   TITAN CITY LIVE METRICS
+   ===================================================== */
+
+.live-metrics {
+    width: min(1100px, calc(100% - 40px));
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 14px auto 0;
+}
+
+.metric-item {
+    position: relative;
+    overflow: hidden;
+    min-height: 76px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    padding: 14px 16px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(28, 28, 28, 0.98),
+            rgba(8, 8, 8, 0.98)
+        );
+    border: 1px solid rgba(255, 20, 147, 0.35);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 0 14px rgba(255, 20, 147, 0.08);
+}
+
+.metric-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 70%;
+    height: 1px;
+    background: var(--green);
+    box-shadow: 0 0 9px var(--green);
+}
+
+.metric-label {
+    color: var(--pink);
+    font-family: "Share Tech Mono", monospace;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+.metric-value {
+    color: var(--green);
+    font-family: "Orbitron", sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-shadow:
+        0 0 7px rgba(124, 252, 0, 0.75),
+        0 0 16px rgba(124, 252, 0, 0.28);
+}
+
+.danger-value {
+    color: var(--pink);
+    text-shadow:
+        0 0 7px rgba(255, 20, 147, 0.75),
+        0 0 16px rgba(255, 20, 147, 0.28);
+}
+
+.alert-green {
+    color: var(--green);
+}
+
+.alert-yellow {
+    color: #ffd447;
+    text-shadow: 0 0 12px rgba(255, 212, 71, 0.55);
+}
+
+.alert-red {
+    color: #ff4545;
+    text-shadow: 0 0 12px rgba(255, 69, 69, 0.65);
+}
+
+.metric-flash {
+    animation: metricFlash 0.45s ease;
+}
+
+@keyframes metricFlash {
+    0% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(2);
+        transform: scale(1.06);
+    }
+
+    100% {
+        filter: brightness(1);
+    }
+}
+
+@media (max-width: 760px) {
+    .live-metrics {
+        width: min(100% - 24px, 1100px);
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 430px) {
+    .metric-value {
+        font-size: 18px;
+    }
+
+    .metric-label {
+        font-size: 9px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .metric-flash {
+        animation: none;
+    }
+}
