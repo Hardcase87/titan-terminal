@@ -1,108 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Titan Terminal</title>
+<title>Titan Terminal</title>
 
-    <style>
-        body {
-            background: #111;
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-            max-width: 900px;
-            margin: auto;
-            padding: 40px;
-        }
+<style>
 
-        h1 {
-            color: #ff1493;
-            font-size: 52px;
-        }
+body{
+    background:#111;
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
+    max-width:900px;
+    margin:auto;
+    padding:40px;
+}
 
-        h2 {
-            color: #7cfc00;
-        }
+h1{
+    color:#ff1493;
+    font-size:52px;
+}
 
-        a {
-            color: #00ffff;
-            text-decoration: none;
-        }
+h2{
+    color:#7CFC00;
+}
 
-        .section {
-            background: #1d1d1d;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 10px;
-        }
+a{
+    color:#00FFFF;
+    text-decoration:none;
+}
 
-        .hero-image {
-            width: 100%;
-            display: block;
-            margin: 30px 0;
-            border-radius: 12px;
-            border: 2px solid #ff1493;
-        }
-    </style>
+.section{
+    background:#1d1d1d;
+    padding:20px;
+    margin:20px 0;
+    border-radius:10px;
+}
+
+.hero-image{
+    width:100%;
+    display:block;
+    margin:30px 0;
+    border-radius:12px;
+    border:2px solid #ff1493;
+}
+
+/* Navigation */
+
+.nav-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin:30px 0;
+}
+
+.nav-button{
+    background:#1d1d1d;
+    border:2px solid #ff1493;
+    border-radius:10px;
+    padding:18px;
+    text-align:center;
+    color:#ff1493;
+    font-weight:bold;
+    text-transform:uppercase;
+    transition:.2s;
+}
+
+.nav-button:hover{
+    background:#ff1493;
+    color:#111;
+    transform:translateY(-3px);
+}
+
+/* Mobile */
+
+@media(max-width:650px){
+
+body{
+    padding:20px;
+}
+
+h1{
+    font-size:38px;
+}
+
+.nav-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-    <h1>💀 TITAN TERMINAL</h1>
+<h1>💀 TITAN TERMINAL</h1>
 
-    <p>
-        <strong>Tactical Terror Division</strong><br>
-        VHS Radicalised 80s/90s Muscle, Mayhem &amp; Money
-    </p>
+<p>
+<strong>Tactical Terror Division</strong><br>
+VHS Radicalised 80s/90s Muscle, Mayhem &amp; Money
+</p>
 
-    <img
-        src="titan-city-hero.jpg"
-        alt="Titan City"
-        class="hero-image"
-    >
+<img
+src="titan-city-hero.jpg"
+alt="Titan City"
+class="hero-image">
 
-    <div class="section">
-        <h2>🏙️ Welcome to Titan City</h2>
+<div class="nav-grid">
 
-        <p>
-            The official headquarters of Tactical Terror Division.
-        </p>
+<a href="#" class="nav-button">🏙️ Titan City</a>
 
-        <p>
-            Titan City is expanding every week with comics,
-            characters, trading cards and complete chaos.
-        </p>
-    </div>
+<a href="#" class="nav-button">📚 Comics</a>
 
-    <div class="section">
-        <h2>🚧 Current Mission</h2>
+<a href="#" class="nav-button">🃏 Cards</a>
 
-        <p>Titan City #1 — Disaster in the Skies</p>
-    </div>
+<a href="#" class="nav-button">💪 TTD</a>
 
-    <div class="section">
-        <h2>💪 Current Projects</h2>
+<a href="#" class="nav-button">🎬 VHS</a>
 
-        <ul>
-            <li>Titan City Comics</li>
-            <li>Trading Cards</li>
-            <li>Titan Babe Squad</li>
-            <li>VHS Movie Marathon</li>
-            <li>Titan Terminal</li>
-        </ul>
-    </div>
+<a href="#" class="nav-button">📡 Socials</a>
 
-    <div class="section">
-        <h2>📡 Follow TTD</h2>
+</div>
 
-        <p>
-            Instagram<br>
-            X<br>
-            Nostr<br>
-            GitHub
-        </p>
-    </div>
+<div class="section">
+
+<h2>🏙️ Welcome to Titan City</h2>
+
+<p>
+The official headquarters of Tactical Terror Division.
+</p>
+
+<p>
+Titan City is expanding every week with comics,
+characters, trading cards and complete chaos.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>🚧 Current Mission</h2>
+
+<p>
+Titan City #1 — Disaster in the Skies
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>💪 Current Projects</h2>
+
+<ul>
+
+<li>Titan City Comics</li>
+<li>Trading Cards</li>
+<li>Titan Babe Squad</li>
+<li>VHS Movie Marathon</li>
+<li>Titan Terminal</li>
+
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>📡 Follow TTD</h2>
+
+<p>
+
+Instagram<br>
+X<br>
+Nostr<br>
+GitHub
+
+</p>
+
+</div>
 
 </body>
 </html>
