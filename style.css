@@ -2264,3 +2264,250 @@ h2,
         overflow-x: auto;
     }
 }
+/* =====================================================
+   TBN LIVE — FIXED BROADCAST TICKER
+   ===================================================== */
+
+.tbn-ticker {
+    position: relative;
+    z-index: 90;
+    width: 100%;
+    height: 46px;
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            90deg,
+            #050505,
+            #110810 45%,
+            #050505
+        );
+    border-top: 1px solid rgba(255, 20, 147, 0.35);
+    border-bottom: 1px solid rgba(124, 252, 0, 0.45);
+    box-shadow:
+        0 4px 18px rgba(0, 0, 0, 0.6),
+        0 0 14px rgba(255, 20, 147, 0.12);
+}
+
+.ticker-badge {
+    position: relative;
+    z-index: 5;
+    flex: 0 0 auto;
+    min-width: 135px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 0 17px;
+    color: #080808;
+    background:
+        linear-gradient(
+            135deg,
+            var(--pink),
+            #ff55b4
+        );
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow:
+        6px 0 20px rgba(255, 20, 147, 0.42);
+}
+
+.ticker-live-light {
+    width: 9px;
+    height: 9px;
+    flex: 0 0 9px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow:
+        0 0 7px var(--green),
+        0 0 15px var(--green);
+    animation: tbnLivePulse 1.25s ease-in-out infinite;
+}
+
+.ticker-window {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ticker-window::before,
+.ticker-window::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+    width: 42px;
+    pointer-events: none;
+}
+
+.ticker-window::before {
+    left: 0;
+    background:
+        linear-gradient(
+            90deg,
+            #080608,
+            transparent
+        );
+}
+
+.ticker-window::after {
+    right: 0;
+    background:
+        linear-gradient(
+            270deg,
+            #080608,
+            transparent
+        );
+}
+
+.ticker-track {
+    width: max-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    will-change: transform;
+    animation: tbnTickerScroll 58s linear infinite;
+}
+
+.ticker-set {
+    height: 100%;
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 19px;
+    padding-right: 19px;
+    white-space: nowrap;
+}
+
+.ticker-set span {
+    display: inline-block;
+    flex: 0 0 auto;
+    color: var(--white);
+    font-family: "Share Tech Mono", monospace;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0.55px;
+    white-space: nowrap;
+}
+
+.ticker-set .market-up {
+    color: var(--green);
+    font-weight: 700;
+    text-shadow:
+        0 0 7px rgba(124, 252, 0, 0.7);
+}
+
+.ticker-set .market-down {
+    color: var(--pink);
+    font-weight: 700;
+    text-shadow:
+        0 0 7px rgba(255, 20, 147, 0.7);
+}
+
+.ticker-set .breaking {
+    color: #ff5757;
+    font-weight: 700;
+    text-shadow:
+        0 0 8px rgba(255, 55, 55, 0.75);
+}
+
+.ticker-set .ticker-divider {
+    color: var(--pink);
+    font-size: 8px;
+    opacity: 0.75;
+    text-shadow:
+        0 0 7px rgba(255, 20, 147, 0.8);
+}
+
+.tbn-ticker:hover .ticker-track {
+    animation-play-state: paused;
+}
+
+@keyframes tbnTickerScroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes tbnLivePulse {
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.35;
+        transform: scale(0.7);
+    }
+}
+
+@media (max-width: 700px) {
+    .tbn-ticker {
+        height: 42px;
+    }
+
+    .ticker-badge {
+        min-width: 105px;
+        padding: 0 10px;
+        font-size: 10px;
+    }
+
+    .ticker-set {
+        gap: 15px;
+        padding-right: 15px;
+    }
+
+    .ticker-set span {
+        font-size: 11px;
+    }
+
+    .ticker-track {
+        animation-duration: 48s;
+    }
+}
+
+@media (max-width: 430px) {
+    .ticker-badge {
+        min-width: 88px;
+        gap: 6px;
+        padding: 0 8px;
+        font-size: 9px;
+    }
+
+    .ticker-live-light {
+        width: 7px;
+        height: 7px;
+        flex-basis: 7px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ticker-track {
+        animation: none;
+        transform: none;
+    }
+
+    .ticker-window {
+        overflow-x: auto;
+    }
+
+    .ticker-live-light {
+        animation: none;
+    }
+}
