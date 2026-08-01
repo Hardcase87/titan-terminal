@@ -1722,3 +1722,406 @@ h2,
         transition: none;
     }
 }
+/* =====================================================
+   TITAN CITY MAP — COMPLETE DISTRICT NETWORK
+   ===================================================== */
+
+.map-terminal {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(32, 32, 32, 0.96),
+            rgba(7, 7, 7, 0.99)
+        );
+    margin: 25px 0;
+    padding: 20px;
+    border: 2px solid var(--pink);
+    border-radius: 16px;
+    box-shadow:
+        0 0 22px rgba(255, 20, 147, 0.34),
+        0 30px 70px rgba(0, 0, 0, 0.7);
+}
+
+.map-command-bar {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    color: var(--green);
+    background: #080808;
+    margin-bottom: 16px;
+    padding: 12px 15px;
+    border: 1px solid rgba(124, 252, 0, 0.35);
+    border-radius: 8px;
+    font-family: "Share Tech Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.interactive-map {
+    position: relative;
+    overflow: hidden;
+    background: #050505;
+    border: 1px solid rgba(255, 20, 147, 0.7);
+    border-radius: 12px;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.7);
+}
+
+.city-map-image {
+    width: 100%;
+    display: block;
+    transition:
+        transform 0.6s ease,
+        filter 0.4s ease;
+}
+
+.interactive-map:hover .city-map-image {
+    transform: scale(1.012);
+    filter: brightness(1.06);
+}
+
+.map-point {
+    position: absolute;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+}
+
+.map-point-pending {
+    cursor: not-allowed;
+}
+
+.map-pulse {
+    width: 25px;
+    height: 25px;
+    display: block;
+    border-radius: 50%;
+}
+
+.green-pulse {
+    background: rgba(124, 252, 0, 0.38);
+    border: 3px solid var(--green);
+    box-shadow:
+        0 0 12px var(--green),
+        0 0 28px rgba(124, 252, 0, 0.8);
+    animation: districtPulseGreen 1.5s infinite;
+}
+
+.pink-pulse {
+    background: rgba(255, 20, 147, 0.4);
+    border: 3px solid var(--pink);
+    box-shadow:
+        0 0 12px var(--pink),
+        0 0 28px rgba(255, 20, 147, 0.8);
+    animation: districtPulsePink 1.5s infinite;
+}
+
+.pending-pulse {
+    width: 17px;
+    height: 17px;
+    background: rgba(184, 184, 184, 0.12);
+    border: 2px solid rgba(184, 184, 184, 0.55);
+    box-shadow: 0 0 12px rgba(184, 184, 184, 0.4);
+    opacity: 0.55;
+}
+
+.map-label {
+    position: absolute;
+    left: 35px;
+    top: 50%;
+    min-width: 180px;
+    color: var(--green);
+    background: rgba(5, 5, 5, 0.94);
+    padding: 10px 13px;
+    border: 1px solid var(--green);
+    border-left: 4px solid var(--pink);
+    border-radius: 6px;
+    font-family: "Orbitron", sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    transform: translateY(-50%);
+    box-shadow: 0 0 18px rgba(124, 252, 0, 0.22);
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.map-label small {
+    display: block;
+    color: var(--pink);
+    margin-top: 5px;
+    font-family: "Share Tech Mono", monospace;
+    font-size: 9px;
+}
+
+.map-point:hover .map-label,
+.map-point:focus .map-label {
+    opacity: 1;
+    transform: translate(5px, -50%);
+}
+
+.pink-label {
+    color: var(--pink);
+    border-color: var(--pink);
+    border-left-color: var(--green);
+}
+
+.pink-label small {
+    color: var(--green);
+}
+
+.gold-label {
+    color: #ffb52e;
+    border-color: #ffb52e;
+}
+
+.blue-label {
+    color: #4edcff;
+    border-color: #4edcff;
+}
+
+.label-left {
+    left: auto;
+    right: 35px;
+}
+
+/* DISTRICT POSITIONS */
+
+.titan-spire-point {
+    left: 47%;
+    top: 18%;
+}
+
+.vhs-quarter-point {
+    left: 32%;
+    top: 31%;
+}
+
+.titan-heights-point {
+    left: 58%;
+    top: 21%;
+}
+
+.military-zone-point {
+    left: 70%;
+    top: 31%;
+}
+
+.nutrition-point {
+    left: 65%;
+    top: 42%;
+}
+
+.skull-juice-factory-point {
+    left: 79%;
+    top: 53%;
+}
+
+.media-district-point {
+    left: 37%;
+    top: 46%;
+}
+
+.skull-plaza-point {
+    left: 50%;
+    top: 52%;
+}
+
+.church-point {
+    left: 21%;
+    top: 41%;
+}
+
+.penitentiary-point {
+    left: 12%;
+    top: 54%;
+}
+
+.financial-district-point {
+    left: 29%;
+    top: 63%;
+}
+
+.titan-treasury-point {
+    left: 66%;
+    top: 65%;
+}
+
+.titan-ball-arena-point {
+    left: 50%;
+    top: 73%;
+}
+
+.docks-point {
+    left: 75%;
+    top: 85%;
+}
+
+.map-instructions {
+    color: var(--muted);
+    background: #0b0b0b;
+    margin-top: 16px;
+    padding: 14px;
+    border-left: 4px solid var(--green);
+    border-radius: 6px;
+    font-family: "Share Tech Mono", monospace;
+}
+
+.map-instructions strong {
+    color: var(--pink);
+}
+
+/* DISTRICT DATABASE */
+
+.district-database-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 13px;
+}
+
+.district-database-card {
+    min-height: 125px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    color: var(--muted);
+    background: #101010;
+    padding: 15px;
+    border: 1px solid rgba(255, 20, 147, 0.25);
+    border-radius: 9px;
+    text-align: center;
+    opacity: 0.58;
+}
+
+.district-database-card > span {
+    font-size: 24px;
+}
+
+.district-database-card strong {
+    color: var(--white);
+    font-family: "Orbitron", sans-serif;
+    font-size: 13px;
+}
+
+.district-database-card small {
+    color: var(--pink);
+    font-family: "Share Tech Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.district-file-online {
+    color: inherit;
+    border-color: rgba(124, 252, 0, 0.6);
+    opacity: 1;
+    transition: 0.2s ease;
+}
+
+.district-file-online small {
+    color: var(--green);
+}
+
+.district-file-online:hover,
+.district-file-online:focus {
+    transform: translateY(-3px);
+    border-color: var(--green);
+    box-shadow: 0 0 22px rgba(124, 252, 0, 0.2);
+    outline: none;
+}
+
+/* PULSE ANIMATIONS */
+
+@keyframes districtPulseGreen {
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow:
+            0 0 12px var(--green),
+            0 0 25px rgba(124, 252, 0, 0.65);
+    }
+
+    50% {
+        transform: scale(1.5);
+        box-shadow:
+            0 0 18px var(--green),
+            0 0 48px rgba(124, 252, 0, 0.95);
+    }
+}
+
+@keyframes districtPulsePink {
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow:
+            0 0 12px var(--pink),
+            0 0 25px rgba(255, 20, 147, 0.65);
+    }
+
+    50% {
+        transform: scale(1.5);
+        box-shadow:
+            0 0 18px var(--pink),
+            0 0 48px rgba(255, 20, 147, 0.95);
+    }
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+    .district-database-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+    .map-command-bar {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .map-terminal {
+        padding: 9px;
+    }
+
+    .green-pulse,
+    .pink-pulse {
+        width: 20px;
+        height: 20px;
+    }
+
+    .pending-pulse {
+        width: 12px;
+        height: 12px;
+    }
+
+    .map-label {
+        display: none;
+    }
+
+    .district-database-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 430px) {
+    .district-database-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .green-pulse,
+    .pink-pulse {
+        animation: none;
+    }
+
+    .city-map-image {
+        transition: none;
+    }
+}
