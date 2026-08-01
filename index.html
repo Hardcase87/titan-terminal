@@ -553,4 +553,49 @@
     </footer>
 
 </body>
+    <script>
+    const operatorsElement = document.getElementById("operators-online");
+    const mutantsElement = document.getElementById("mutants-detected");
+    const alertElement = document.getElementById("alert-level");
+
+    let operators = 873;
+    let mutants = 42;
+
+    function flashMetric(element) {
+        element.classList.remove("metric-flash");
+
+        void element.offsetWidth;
+
+        element.classList.add("metric-flash");
+    }
+
+    function updateTitanMetrics() {
+        operators += Math.floor(Math.random() * 7) - 3;
+        mutants += Math.floor(Math.random() * 5) - 2;
+
+        operators = Math.max(850, Math.min(920, operators));
+        mutants = Math.max(30, Math.min(75, mutants));
+
+        operatorsElement.textContent = operators;
+        mutantsElement.textContent = mutants;
+
+        flashMetric(operatorsElement);
+        flashMetric(mutantsElement);
+
+        alertElement.className = "metric-value";
+
+        if (mutants >= 65) {
+            alertElement.textContent = "Red";
+            alertElement.classList.add("alert-red");
+        } else if (mutants >= 50) {
+            alertElement.textContent = "Elevated";
+            alertElement.classList.add("alert-yellow");
+        } else {
+            alertElement.textContent = "Green";
+            alertElement.classList.add("alert-green");
+        }
+    }
+
+    setInterval(updateTitanMetrics, 5000);
+</script>
 </html>
