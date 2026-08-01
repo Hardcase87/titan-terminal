@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Orbitron:wght@400;600;700;800;900&family=Share+Tech+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap");
 :root {
     --black: #090909;
     --panel: #181818;
@@ -1275,5 +1276,252 @@ h2,
     .action-button,
     .social-link {
         transition: none;
+    }
+}
+/* =====================================================
+   VERSION 0.5 — TTD TYPOGRAPHY SYSTEM
+   ===================================================== */
+
+/* Readable body copy */
+
+body {
+    font-family: "Rajdhani", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.15px;
+}
+
+/* Main TITAN TERMINAL logo */
+
+h1 {
+    font-family: "Orbitron", Arial, sans-serif;
+    font-weight: 900;
+    letter-spacing: 5px;
+    line-height: 0.95;
+    color: var(--pink);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.12);
+    text-shadow:
+        0 2px 0 #85004d,
+        0 4px 0 #470029,
+        0 0 7px var(--pink),
+        0 0 18px rgba(255, 20, 147, 0.85),
+        0 0 42px rgba(255, 20, 147, 0.55);
+}
+
+/* Main subtitle */
+
+.subtitle {
+    font-family: "Orbitron", Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
+/* Tagline */
+
+.tagline {
+    font-family: "Rajdhani", Arial, sans-serif;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+}
+
+/* Toxic green section headings */
+
+h2,
+.section h2,
+.section h3 {
+    font-family: "Orbitron", Arial, sans-serif;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--green);
+    text-shadow:
+        0 2px 0 #315d00,
+        0 0 7px rgba(124, 252, 0, 0.8),
+        0 0 20px rgba(124, 252, 0, 0.28);
+}
+
+/* Terminal and classified-file labels */
+
+.terminal-label,
+.section-code,
+.status,
+.version,
+.archive-status,
+.transmission-bar,
+.hero-hud,
+.project-state,
+.vhs-report span,
+.back-link,
+.back-to-top,
+.footer-copy {
+    font-family: "Share Tech Mono", monospace;
+}
+
+/* Pink command labels */
+
+.section-code {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow:
+        0 0 6px rgba(255, 20, 147, 0.85),
+        0 0 14px rgba(255, 20, 147, 0.3);
+}
+
+/* Green system labels */
+
+.terminal-label,
+.status,
+.version,
+.archive-status {
+    text-shadow:
+        0 0 6px rgba(124, 252, 0, 0.85),
+        0 0 15px rgba(124, 252, 0, 0.32);
+}
+
+/* Navigation buttons */
+
+.nav-button {
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.nav-button small {
+    font-family: "Share Tech Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* Mission and major feature titles */
+
+.mission-title {
+    font-family: "Orbitron", Arial, sans-serif;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Project cards */
+
+.project-card h3 {
+    font-family: "Orbitron", Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+}
+
+/* Data panels */
+
+.data-box strong {
+    font-family: "Share Tech Mono", monospace;
+    letter-spacing: 1px;
+}
+
+.data-box span {
+    font-family: "Orbitron", Arial, sans-serif;
+    font-weight: 700;
+}
+
+/* Buttons */
+
+.action-button,
+.social-link {
+    font-family: "Orbitron", Arial, sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+}
+
+.social-link small {
+    font-family: "Share Tech Mono", monospace;
+}
+
+/* Footer logo */
+
+.footer-title {
+    font-family: "Orbitron", Arial, sans-serif;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Subtle neon pulse for the main logo */
+
+.terminal-header h1 {
+    animation: ttd-title-pulse 4s ease-in-out infinite;
+}
+
+@keyframes ttd-title-pulse {
+    0%,
+    100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.14);
+    }
+}
+
+/* Light sweep across interactive buttons */
+
+.nav-button,
+.action-button,
+.social-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-button::before,
+.action-button::before,
+.social-link::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+        115deg,
+        transparent 25%,
+        rgba(255, 255, 255, 0.2) 48%,
+        rgba(255, 255, 255, 0.32) 50%,
+        transparent 53%
+    );
+    transform: translateX(-160%);
+    transition: transform 0.55s ease;
+}
+
+.nav-button:hover::before,
+.action-button:hover::before,
+.social-link:hover::before {
+    transform: translateX(160%);
+}
+
+/* Mobile adjustments */
+
+@media (max-width: 700px) {
+    h1 {
+        letter-spacing: 2px;
+    }
+
+    .nav-button {
+        font-size: 14px;
+    }
+
+    h2,
+    .section h2,
+    .section h3 {
+        letter-spacing: 0.5px;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .terminal-header h1 {
+        animation: none;
+    }
+
+    .nav-button::before,
+    .action-button::before,
+    .social-link::before {
+        display: none;
     }
 }
