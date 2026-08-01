@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Orbitron:wght@400;600;700;800;900&family=Share+Tech+Mono&display=swap");
 :root {
     --black: #090909;
     --panel: #181818;
@@ -900,5 +901,379 @@ footer {
     .project-grid,
     .data-grid {
         grid-template-columns: 1fr;
+    }
+}
+/* =====================================================
+   TTD TYPOGRAPHY OVERDRIVE
+   ===================================================== */
+
+body {
+    font-family: "Orbitron", Arial, sans-serif;
+}
+
+/* Main TITAN TERMINAL title */
+
+h1 {
+    position: relative;
+    font-family: "Black Ops One", "Orbitron", sans-serif;
+    font-weight: 400;
+    letter-spacing: 4px;
+    color: #ff1493;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.12);
+    text-shadow:
+        0 2px 0 #8c0052,
+        0 4px 0 #52002f,
+        0 0 6px #ff1493,
+        0 0 14px #ff1493,
+        0 0 30px rgba(255, 20, 147, 0.9),
+        0 0 65px rgba(255, 20, 147, 0.55);
+    animation: titanTitlePulse 3.5s ease-in-out infinite;
+}
+
+/* Small electric slash under the title */
+
+h1::after {
+    content: "";
+    display: block;
+    width: min(520px, 80%);
+    height: 4px;
+    margin: 20px auto 0;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--pink) 15%,
+            var(--green) 50%,
+            var(--pink) 85%,
+            transparent
+        );
+    box-shadow:
+        0 0 8px var(--pink),
+        0 0 18px rgba(124, 252, 0, 0.7);
+    clip-path: polygon(
+        0 35%,
+        42% 35%,
+        45% 0,
+        49% 100%,
+        53% 20%,
+        57% 65%,
+        100% 65%,
+        100% 100%,
+        0 100%
+    );
+}
+
+/* Section titles */
+
+h2,
+.section h2,
+.section h3 {
+    font-family: "Black Ops One", "Orbitron", sans-serif;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--green);
+    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.08);
+    text-shadow:
+        0 2px 0 #315f00,
+        0 0 7px rgba(124, 252, 0, 0.8),
+        0 0 20px rgba(124, 252, 0, 0.35);
+}
+
+/* Main subtitle */
+
+.subtitle {
+    font-family: "Black Ops One", "Orbitron", sans-serif;
+    color: var(--white);
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.25),
+        0 0 22px rgba(255, 20, 147, 0.18);
+}
+
+/* Main tagline */
+
+.tagline {
+    font-family: "Orbitron", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Military terminal text */
+
+.terminal-label,
+.section-code,
+.status,
+.version,
+.archive-status,
+.transmission-bar,
+.hero-hud,
+.project-state,
+.vhs-report span,
+.back-link,
+.back-to-top {
+    font-family: "Share Tech Mono", monospace;
+}
+
+/* Green terminal labels */
+
+.terminal-label,
+.section-code {
+    text-shadow:
+        0 0 5px rgba(124, 252, 0, 0.85),
+        0 0 14px rgba(124, 252, 0, 0.38);
+}
+
+/* Navigation typography */
+
+.nav-button {
+    font-family: "Orbitron", sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 9px rgba(255, 20, 147, 0.35);
+}
+
+.nav-button small {
+    font-family: "Share Tech Mono", monospace;
+    letter-spacing: 1px;
+}
+
+/* Button light sweep */
+
+.nav-button::before,
+.action-button::before,
+.social-link::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            115deg,
+            transparent 20%,
+            rgba(255, 255, 255, 0.15) 46%,
+            rgba(255, 255, 255, 0.28) 50%,
+            transparent 54%
+        );
+    transform: translateX(-150%);
+    transition: transform 0.55s ease;
+    pointer-events: none;
+}
+
+.nav-button:hover::before,
+.action-button:hover::before,
+.social-link:hover::before {
+    transform: translateX(150%);
+}
+
+.nav-button,
+.action-button,
+.social-link {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Mission title */
+
+.mission-title {
+    font-family: "Black Ops One", "Orbitron", sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.18),
+        0 0 20px rgba(255, 20, 147, 0.18);
+}
+
+/* Project cards */
+
+.project-card h3 {
+    font-family: "Orbitron", sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+/* Data panels */
+
+.data-box strong {
+    font-family: "Share Tech Mono", monospace;
+    letter-spacing: 1px;
+}
+
+.data-box span {
+    font-family: "Orbitron", sans-serif;
+}
+
+/* Social buttons */
+
+.social-link {
+    font-family: "Orbitron", sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+}
+
+.social-link small {
+    font-family: "Share Tech Mono", monospace;
+}
+
+/* Footer */
+
+.footer-title {
+    font-family: "Black Ops One", "Orbitron", sans-serif;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.footer-copy {
+    font-family: "Share Tech Mono", monospace;
+}
+
+/* Glitch title effect */
+
+.terminal-header h1 {
+    isolation: isolate;
+}
+
+.terminal-header h1::before {
+    content: "TITAN TERMINAL";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    color: var(--cyan);
+    opacity: 0;
+    transform: translateX(-3px);
+    clip-path: inset(30% 0 45% 0);
+    animation: titanGlitchOne 7s infinite;
+}
+
+.terminal-header h1::after {
+    /* Overrides only on the pseudo-element structure,
+       so the electric underline remains handled below */
+}
+
+/* Occasional glitch overlay */
+
+.terminal-header {
+    position: relative;
+}
+
+.terminal-header::after {
+    content: "TACTICAL TERROR DIVISION NETWORK";
+    position: absolute;
+    top: 48px;
+    left: 50%;
+    width: 100%;
+    color: var(--pink);
+    font-family: "Share Tech Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 5px;
+    opacity: 0;
+    transform: translateX(-50%);
+    pointer-events: none;
+    animation: titanGlitchTwo 9s infinite;
+}
+
+/* Pulsing title */
+
+@keyframes titanTitlePulse {
+    0%,
+    100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.18);
+    }
+}
+
+/* Rare glitch event */
+
+@keyframes titanGlitchOne {
+    0%,
+    89%,
+    93%,
+    100% {
+        opacity: 0;
+        transform: translateX(-3px);
+    }
+
+    90% {
+        opacity: 0.75;
+        transform: translateX(6px);
+    }
+
+    91% {
+        opacity: 0.35;
+        transform: translateX(-8px);
+    }
+
+    92% {
+        opacity: 0.65;
+        transform: translateX(4px);
+    }
+}
+
+@keyframes titanGlitchTwo {
+    0%,
+    92%,
+    96%,
+    100% {
+        opacity: 0;
+    }
+
+    93% {
+        opacity: 0.6;
+        transform: translateX(calc(-50% + 5px));
+    }
+
+    94% {
+        opacity: 0.2;
+        transform: translateX(calc(-50% - 8px));
+    }
+
+    95% {
+        opacity: 0.5;
+        transform: translateX(calc(-50% + 3px));
+    }
+}
+
+/* Mobile typography */
+
+@media (max-width: 700px) {
+    h1 {
+        letter-spacing: 1px;
+    }
+
+    h1::after {
+        margin-top: 14px;
+    }
+
+    .terminal-header::after {
+        display: none;
+    }
+
+    .nav-button {
+        font-size: 14px;
+    }
+}
+
+/* Respect reduced motion settings */
+
+@media (prefers-reduced-motion: reduce) {
+    h1,
+    .terminal-header h1::before,
+    .terminal-header::after,
+    .transmission-light {
+        animation: none !important;
+    }
+
+    .nav-button,
+    .action-button,
+    .social-link {
+        transition: none;
     }
 }
