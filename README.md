@@ -1,21 +1,49 @@
-# titan-terminal
-Official home of Tactical Terror Division and Titan City.
-# TITAN TERMINAL
+# 💀 TITAN TERMINAL
 
-## Welcome to Titan City
+## Tactical Terror Division
 
-Welcome to Titan Terminal, the official headquarters of Tactical Terror Division.
-
-VHS Radicalised 80s/90s Muscle, Mayhem & Money.
+### VHS Radicalised 80s/90s Muscle, Mayhem & Money
 
 ---
 
-### Current Mission
+## 🏙️ Welcome to Titan City
 
-Titan City #1: Disaster in the Skies
+Titan Terminal is the official headquarters of Tactical Terror Division.
+
+A world of comics, action heroes, VHS nostalgia, mutant mayhem and over-the-top fitness.
 
 ---
 
-### Enter Titan City
+## 🚧 Current Mission
 
-🚧 Under Construction
+📖 Titan City #1 – Disaster in the Skies
+
+---
+
+## 💪 Current Projects
+
+- Titan City Comics
+- Trading Cards
+- Titan Babe Squad
+- VHS Movie Marathon
+- Titan Terminal
+
+---
+
+## 📡 Follow Tactical Terror Division
+
+Instagram
+
+X
+
+Nostr
+
+GitHub
+
+---
+
+## 🏗 Status
+
+Titan Terminal is under construction.
+
+Version 0.1
