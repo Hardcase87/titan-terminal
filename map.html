@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Interactive district map of Titan City."
+    >
+
+    <meta name="theme-color" content="#090909">
+
+    <title>🗺️ Titan City Map</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div class="top-bar-inner">
+            <a class="brand-mini" href="index.html">
+                💀 TITAN TERMINAL
+            </a>
+
+            <a class="back-link" href="index.html">
+                ← Return to HQ
+            </a>
+        </div>
+    </div>
+
+    <main class="site-shell">
+
+        <header class="terminal-header">
+            <div class="terminal-label">
+                Tactical Terror Division City Network
+            </div>
+
+            <h1>🗺️ Titan City Map</h1>
+
+            <p class="subtitle">
+                Interactive District Database
+            </p>
+
+            <p class="intro">
+                Select an active district marker to access local files,
+                businesses, citizens, incidents and classified intelligence.
+            </p>
+
+            <div class="status-row">
+                <span class="version">
+                    Map Network Online
+                </span>
+
+                <span class="version warning-status">
+                    District Files Restricted
+                </span>
+            </div>
+        </header>
+
+        <div class="transmission-bar">
+            <span class="transmission-light"></span>
+
+            <strong>CITY NETWORK:</strong>
+
+            Nutrition District file available. Additional districts deploying.
+        </div>
+
+        <section class="map-terminal">
+
+            <div class="map-command-bar">
+                <span>MAP_MODE: DISTRICTS</span>
+                <span>ACTIVE_FILES: 01</span>
+                <span>ZOOM: AVAILABLE</span>
+            </div>
+
+            <div class="interactive-map">
+
+                <img
+                    src="titan-city-map.jpg"
+                    alt="Map of Titan City"
+                    class="city-map-image"
+                >
+
+                <a
+                    class="map-point nutrition-point"
+                    href="nutrition-district.html"
+                    aria-label="Open Nutrition District"
+                >
+                    <span class="map-pulse"></span>
+
+                    <span class="map-label">
+                        NUTRITION DISTRICT
+                        <small>FILE AVAILABLE</small>
+                    </span>
+                </a>
+
+            </div>
+
+            <div class="map-instructions">
+                <strong>ACTIVE LOCATION:</strong>
+                Tap the pulsing green marker inside Nutrition District.
+            </div>
+
+        </section>
+
+        <section class="section">
+            <div class="section-code">
+                DISTRICT DATABASE // DEPLOYING
+            </div>
+
+            <h2>🏙️ Titan City Districts</h2>
+
+            <div class="project-grid">
+
+                <a
+                    class="project-card district-card district-online"
+                    href="nutrition-district.html"
+                >
+                    <span class="project-icon">🥤</span>
+
+                    <h3>Nutrition District</h3>
+
+                    <p>
+                        Skull Juice, mutant fuel, supplement laboratories
+                        and Titan-scale nutrition.
+                    </p>
+
+                    <span class="project-state online">
+                        File Online
+                    </span>
+                </a>
+
+                <article class="project-card district-locked">
+                    <span class="project-icon">📼</span>
+
+                    <h3>VHS Quarter</h3>
+
+                    <p>
+                        Old school. Badass. Unforgettable.
+                    </p>
+
+                    <span class="project-state">
+                        File Locked
+                    </span>
+                </article>
+
+                <article class="project-card district-locked">
+                    <span class="project-icon">💀</span>
+
+                    <h3>Skull Plaza</h3>
+
+                    <p>
+                        Heart of the city. Strength in stone.
+                    </p>
+
+                    <span class="project-state">
+                        File Locked
+                    </span>
+                </article>
+
+                <article class="project-card district-locked">
+                    <span class="project-icon">📡</span>
+
+                    <h3>Media District</h3>
+
+                    <p>
+                        The broadcast never stops.
+                    </p>
+
+                    <span class="project-state">
+                        File Locked
+                    </span>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-title">
+            🗺️ Titan City Network
+        </div>
+
+        <p class="footer-copy">
+            Tactical Terror Division Cartography Division<br>
+            District Database Version 0.1<br>
+            © 2026 Tactical Terror Division
+        </p>
+
+        <a class="back-to-top" href="#top">
+            ↑ Return to Map Command
+        </a>
+    </footer>
+
+</body>
+</html>
