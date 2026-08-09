@@ -1,0 +1,641 @@
+/* =====================================================
+   TITAN TERMINAL v0.6 — VISUAL MUTATION PATCH
+   Append this entire block to the END of style.css
+   09 AUG 2026
+   ===================================================== */
+
+:root {
+    --ttd-red: #ff3b30;
+    --ttd-amber: #ffb52e;
+    --ttd-deep: #050505;
+    --ttd-grid: rgba(124, 252, 0, 0.045);
+    --ttd-pink-grid: rgba(255, 20, 147, 0.035);
+}
+
+/* ---------- GLOBAL ATMOSPHERE ---------- */
+
+body {
+    position: relative;
+    background:
+        linear-gradient(rgba(0,0,0,.22), rgba(0,0,0,.52)),
+        radial-gradient(circle at 18% 0%, rgba(255,20,147,.16), transparent 30%),
+        radial-gradient(circle at 82% 18%, rgba(124,252,0,.09), transparent 26%),
+        linear-gradient(180deg, #111 0%, #070707 42%, #030303 100%);
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        linear-gradient(var(--ttd-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--ttd-grid) 1px, transparent 1px),
+        linear-gradient(var(--ttd-pink-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--ttd-pink-grid) 1px, transparent 1px);
+    background-size:
+        48px 48px,
+        48px 48px,
+        240px 240px,
+        240px 240px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), transparent 88%);
+    opacity: .75;
+}
+
+/* subtle CRT vignette without killing readability */
+.site-shell,
+.live-metrics,
+.terminal-clock,
+.intelligence-grid {
+    position: relative;
+}
+
+/* ---------- COMMAND BAR ---------- */
+
+.top-bar {
+    background:
+        linear-gradient(90deg, rgba(9,9,9,.98), rgba(18,6,15,.97), rgba(9,9,9,.98));
+    border-bottom: 1px solid rgba(255,20,147,.65);
+    box-shadow:
+        0 6px 20px rgba(0,0,0,.5),
+        0 0 20px rgba(255,20,147,.08);
+}
+
+.brand-mini {
+    font-family: "Orbitron", sans-serif;
+    letter-spacing: 1.8px;
+    text-shadow:
+        0 0 8px rgba(255,20,147,.75),
+        0 0 18px rgba(255,20,147,.28);
+}
+
+.status {
+    opacity: .9;
+}
+
+/* ---------- HEADER / LOGO ---------- */
+
+.terminal-header {
+    padding-top: 56px;
+    padding-bottom: 28px;
+}
+
+.terminal-header h1 {
+    font-size: clamp(46px, 8vw, 86px);
+    letter-spacing: 6px;
+    text-shadow:
+        0 2px 0 #8d0053,
+        0 5px 0 #3b001f,
+        0 0 8px rgba(255,20,147,1),
+        0 0 28px rgba(255,20,147,.65),
+        0 0 70px rgba(255,20,147,.28);
+}
+
+.terminal-label {
+    color: var(--green);
+    letter-spacing: 5px;
+}
+
+.tagline {
+    color: #d7d7d7;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ---------- HERO / COMMAND IMAGE ---------- */
+
+.hero-wrap {
+    overflow: hidden;
+    border-radius: 18px;
+    isolation: isolate;
+}
+
+.hero-wrap::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+        linear-gradient(to bottom, rgba(0,0,0,.08), transparent 42%, rgba(0,0,0,.48)),
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 5px,
+            rgba(255,255,255,.035) 6px
+        );
+}
+
+.hero-image {
+    filter: saturate(1.06) contrast(1.05);
+    transition: transform .55s ease, filter .55s ease;
+}
+
+.hero-wrap:hover .hero-image {
+    transform: scale(1.012);
+    filter: saturate(1.14) contrast(1.07) brightness(1.03);
+}
+
+.hero-hud {
+    z-index: 4;
+    border: 1px solid rgba(124,252,0,.72);
+    background:
+        linear-gradient(145deg, rgba(4,9,4,.88), rgba(3,3,3,.82));
+    box-shadow:
+        0 0 18px rgba(124,252,0,.14),
+        inset 0 0 22px rgba(124,252,0,.035);
+}
+
+/* ---------- LIVE TRANSMISSION ---------- */
+
+.transmission-bar {
+    position: relative;
+    overflow: hidden;
+    border-color: rgba(255,20,147,.62);
+    background:
+        linear-gradient(90deg, rgba(255,20,147,.16), rgba(124,252,0,.07), rgba(0,0,0,.2));
+    box-shadow:
+        inset 0 0 24px rgba(255,20,147,.05),
+        0 0 18px rgba(255,20,147,.08);
+}
+
+.transmission-bar::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255,255,255,.08) 48%,
+        transparent 52%
+    );
+    transform: translateX(-120%);
+    animation: ttdTransmissionSweep 8s linear infinite;
+}
+
+@keyframes ttdTransmissionSweep {
+    to { transform: translateX(120%); }
+}
+
+/* ---------- NAVIGATION ---------- */
+
+.nav-grid {
+    gap: 12px;
+}
+
+.nav-button {
+    min-height: 108px;
+    border-radius: 9px;
+    border-width: 1px;
+    background:
+        linear-gradient(155deg, rgba(35,35,35,.96), rgba(10,10,10,.98));
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.05),
+        inset 0 -14px 26px rgba(0,0,0,.22);
+}
+
+.nav-button::after {
+    content: "";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 8px;
+    height: 2px;
+    background: currentColor;
+    opacity: .45;
+    box-shadow: 0 0 8px currentColor;
+}
+
+.nav-button:hover,
+.nav-button:focus {
+    transform: translateY(-5px) scale(1.01);
+}
+
+.featured-button {
+    background:
+        linear-gradient(155deg, rgba(124,252,0,.09), rgba(10,10,10,.98));
+}
+
+/* ---------- CORE SECTION PANELS ---------- */
+
+.section {
+    overflow: hidden;
+    border-left-width: 3px;
+    border-radius: 10px;
+    background:
+        linear-gradient(145deg, rgba(29,29,29,.98), rgba(10,10,10,.99));
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.42),
+        inset 0 1px 0 rgba(255,255,255,.04),
+        inset 0 0 35px rgba(255,20,147,.018);
+}
+
+.section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .18;
+    background:
+        linear-gradient(90deg, rgba(255,20,147,.12), transparent 22%),
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 23px,
+            rgba(124,252,0,.025) 24px
+        );
+}
+
+.section > * {
+    position: relative;
+    z-index: 1;
+}
+
+.section-code {
+    display: inline-block;
+    padding: 5px 8px;
+    background: rgba(255,20,147,.075);
+    border-left: 2px solid var(--pink);
+}
+
+.section h2 {
+    margin-bottom: 16px;
+}
+
+.section p {
+    max-width: 900px;
+}
+
+/* ---------- DATA / PROJECT / ARCHIVE CARDS ---------- */
+
+.data-box,
+.project-card,
+.archive-card,
+.district-database-card {
+    background:
+        linear-gradient(150deg, rgba(19,19,19,.98), rgba(7,7,7,.99));
+    border-radius: 7px;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.035),
+        0 10px 26px rgba(0,0,0,.22);
+}
+
+.data-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.data-box::after {
+    content: "";
+    position: absolute;
+    left: 18%;
+    right: 18%;
+    bottom: 0;
+    height: 1px;
+    background: var(--pink);
+    opacity: .45;
+    box-shadow: 0 0 7px var(--pink);
+}
+
+.project-card {
+    border-color: rgba(255,20,147,.25);
+}
+
+.project-card:hover {
+    box-shadow:
+        0 14px 30px rgba(0,0,0,.3),
+        0 0 20px rgba(255,20,147,.13);
+}
+
+/* v0.5 homepage archive cards */
+
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-top: 22px;
+}
+
+.archive-card {
+    position: relative;
+    overflow: hidden;
+    padding: 18px;
+    border: 1px solid rgba(255,255,255,.11);
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.archive-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    background: currentColor;
+    box-shadow: 0 0 10px currentColor;
+}
+
+.archive-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 54px;
+    height: 1px;
+    background: currentColor;
+    opacity: .7;
+    box-shadow: 0 0 8px currentColor;
+}
+
+.archive-card:hover {
+    transform: translateY(-4px);
+    border-color: currentColor;
+    box-shadow:
+        0 16px 30px rgba(0,0,0,.32),
+        0 0 20px color-mix(in srgb, currentColor 20%, transparent);
+}
+
+.archive-card h3 {
+    margin: 8px 0 8px;
+    color: var(--white);
+    font-size: 20px;
+}
+
+.archive-card p {
+    margin: 0 0 12px;
+    font-size: 15px;
+}
+
+.archive-kicker {
+    display: inline-block;
+    color: currentColor;
+    font-family: "Share Tech Mono", monospace;
+    font-size: .72rem;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+}
+
+.archive-tag {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 5px 8px;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    font-family: "Share Tech Mono", monospace;
+    font-size: .68rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.vhs-card {
+    color: #f0c44f;
+    background:
+        linear-gradient(155deg, rgba(56,40,10,.22), rgba(10,10,10,.98));
+}
+
+.vehicle-card {
+    color: var(--green);
+    background:
+        linear-gradient(155deg, rgba(17,55,14,.22), rgba(10,10,10,.98));
+}
+
+.release-strip {
+    position: relative;
+    overflow: hidden;
+    margin-top: 18px;
+    padding: 13px 15px;
+    border: 1px solid rgba(255,255,255,.14);
+    border-left: 3px solid var(--pink);
+    background:
+        linear-gradient(90deg, rgba(255,20,147,.08), rgba(124,252,0,.035));
+    font-family: "Share Tech Mono", monospace;
+    font-size: .88rem;
+    letter-spacing: .03em;
+}
+
+.release-strip strong {
+    color: var(--ttd-red);
+}
+
+/* ---------- VHS VAULT ---------- */
+
+#vhs {
+    border-left-color: #f0c44f;
+}
+
+#vhs::after {
+    background: #f0c44f;
+    box-shadow: 0 0 12px #f0c44f;
+}
+
+#vhs .section-code,
+#vhs h2 {
+    color: #f0c44f;
+    text-shadow:
+        0 0 7px rgba(240,196,79,.72),
+        0 0 18px rgba(240,196,79,.24);
+}
+
+#vhs .vhs-report {
+    background:
+        linear-gradient(90deg, rgba(240,196,79,.06), rgba(8,8,8,.95));
+    border-left-color: #f0c44f;
+}
+
+#vhs .vhs-report span {
+    color: #f0c44f;
+}
+
+/* ---------- VEHICLE MOTOR POOL ---------- */
+
+#vehicles {
+    border-left-color: var(--green);
+}
+
+#vehicles::after {
+    background: var(--green);
+}
+
+#vehicles .section-code {
+    color: var(--green);
+    text-shadow:
+        0 0 7px rgba(124,252,0,.75),
+        0 0 18px rgba(124,252,0,.22);
+}
+
+#vehicles .archive-card:nth-child(1) {
+    /* VIPER gets extra TTD neon */
+    box-shadow:
+        inset 0 0 22px rgba(124,252,0,.035),
+        0 0 18px rgba(255,20,147,.07);
+}
+
+/* ---------- INTELLIGENCE PANELS ---------- */
+
+.intelligence-grid {
+    gap: 12px;
+}
+
+.intel-panel {
+    border-radius: 8px;
+    background:
+        linear-gradient(145deg, rgba(22,22,22,.99), rgba(5,5,5,.99));
+    box-shadow:
+        0 18px 38px rgba(0,0,0,.45),
+        inset 0 0 24px rgba(124,252,0,.012);
+}
+
+.classified-panel {
+    background:
+        linear-gradient(145deg, rgba(34,8,26,.48), rgba(5,5,5,.99));
+}
+
+.alert-panel {
+    background:
+        linear-gradient(145deg, rgba(55,7,7,.24), rgba(5,5,5,.99));
+}
+
+.weather-panel {
+    background:
+        linear-gradient(145deg, rgba(16,44,7,.18), rgba(5,5,5,.99));
+}
+
+.camera-screen {
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(124,252,0,.025) 0,
+            rgba(124,252,0,.025) 1px,
+            transparent 2px,
+            transparent 5px
+        ),
+        radial-gradient(circle at center, rgba(124,252,0,.105), transparent 56%),
+        #030503;
+}
+
+/* ---------- CLOCK ---------- */
+
+.clock-panel {
+    overflow: hidden;
+    border-radius: 8px;
+    background:
+        linear-gradient(145deg, rgba(16,28,13,.5), rgba(6,6,6,.98));
+}
+
+.clock-panel::after {
+    content: "TDI-87 // LOCAL SYSTEM CLOCK";
+    position: absolute;
+    right: 12px;
+    bottom: 8px;
+    color: rgba(124,252,0,.28);
+    font-family: "Share Tech Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+/* ---------- LIVE METRICS ---------- */
+
+.metric-item {
+    border-radius: 6px;
+    transition: transform .2s ease, border-color .2s ease;
+}
+
+.metric-item:hover {
+    transform: translateY(-2px);
+    border-color: rgba(124,252,0,.48);
+}
+
+/* ---------- SOCIAL / FOOTER ---------- */
+
+.social-link {
+    border-radius: 6px;
+    background: rgba(8,8,8,.6);
+}
+
+footer {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(255,20,147,.07), transparent 36%),
+        #040404;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--pink), var(--green), transparent);
+    box-shadow: 0 0 12px rgba(255,20,147,.5);
+}
+
+.footer-title {
+    text-shadow:
+        0 0 8px rgba(255,20,147,.75),
+        0 0 22px rgba(255,20,147,.28);
+}
+
+/* ---------- MOBILE / TABLET ---------- */
+
+@media (max-width: 900px) {
+    .archive-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .terminal-header h1 {
+        letter-spacing: 3px;
+    }
+
+    .section {
+        padding: 20px;
+    }
+
+    .archive-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .archive-card {
+        padding: 16px;
+    }
+
+    .clock-panel::after {
+        display: none;
+    }
+}
+
+@media (max-width: 430px) {
+    .terminal-header {
+        padding-top: 38px;
+    }
+
+    .terminal-header h1 {
+        font-size: 42px;
+        letter-spacing: 1px;
+    }
+
+    .nav-button {
+        min-height: 88px;
+    }
+}
+
+/* ---------- REDUCED MOTION ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .transmission-bar::after {
+        animation: none;
+    }
+
+    .hero-image,
+    .archive-card,
+    .metric-item {
+        transition: none;
+    }
+}
