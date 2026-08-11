@@ -2208,7 +2208,7 @@ h2,
     font-size: 13px;
     letter-spacing: 0.5px;
     white-space: nowrap;
-    animation: tbnTickerScroll 55s linear infinite;
+    animation: tbnTickerScroll 85s linear infinite;
 }
 
 .ticker-track span {
