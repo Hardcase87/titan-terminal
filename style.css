@@ -4512,4 +4512,27 @@ body {
         clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
     }
 }
+.fkd-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 12px;
+}
 
+.fkd-controls button {
+  border: 1px solid #b8ff00;
+  border-radius: 7px;
+  background: rgba(184,255,0,.08);
+  color: #b8ff00;
+  padding: 8px 16px;
+  font-family: monospace;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(184,255,0,.25);
+}
+
+.fkd-controls button:hover {
+  background: rgba(255,59,191,.12);
+  border-color: #ff3bbf;
+  color: #ff70cf;
+}
