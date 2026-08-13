@@ -4100,3 +4100,19 @@ footer::before {
     text-align: left;
   }
 }
+/* =========================================================
+   FKD — TABLET / DESKTOP WIDTH FIX
+   MOBILE STAYS UNTOUCHED
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  .fkd-panel {
+    grid-column: span 2;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+}
