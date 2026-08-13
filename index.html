@@ -1466,9 +1466,15 @@
       panel.classList.add("fkd-critical");
     }
   }
+let currentFKD = 58;
 
+function changeFKD(amount) {
+  currentFKD = Math.max(0, Math.min(100, currentFKD + amount));
+  setFKD(currentFKD);
+}
+
+setFKD(currentFKD);
   // CURRENT HQ READING
-  setFKD(82);
 </script>
     </script>
 </body>
