@@ -1,0 +1,20 @@
+TITAN TERMINAL v0.6 — MUTATION PASS
+13 AUG 2026
+
+WHAT CHANGED
+- Added logo-ready Titan Sigil slots to the site command bars.
+- Added larger Titan Sigil slot to the Titan Terminal homepage title.
+- New TTD palette: toxic chartreuse + hot magenta + network cyan + gunmetal/bone neutrals.
+- Reduced blanket glow and increased visual hierarchy.
+- Added tactical clipped-corner panel styling.
+- Cyan now signals network/data, pink command/TTD, green system/mutagen, amber/red warnings.
+- Rebuilt intelligence-grid breakpoints:
+    desktop: 12-col, camera/FKD/alert balanced, Terminal Traffic full width
+    iPad portrait: camera + alert paired, FKD and Traffic full width
+    phone: single-column flow preserved
+- Updated homepage version text to 0.6 / 13 AUG 2026.
+
+IMAGE TO ADD
+assets/titan-sigil.png
+
+No other image is required for deployment. The fallback TTD badge displays until the PNG is present.
