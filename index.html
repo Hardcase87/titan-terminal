@@ -1416,7 +1416,43 @@
     }
 
     setInterval(updateVisitors,5000);
+<script>
+  function setFKD(value) {
+    const number = document.getElementById("fkdNumber");
+    const fill = document.getElementById("fkdFill");
+    const status = document.getElementById("fkdStatus");
+    const warning = document.getElementById("fkdWarning");
+    const panel = document.getElementById("fkdPanel");
 
+    value = Math.max(0, Math.min(100, value));
+
+    number.textContent = value;
+    fill.style.width = value + "%";
+
+    panel.classList.remove("fkd-critical");
+
+    if (value <= 25) {
+      status.textContent = "SUSPICIOUSLY PEACEFUL";
+      warning.textContent = "NO MAJOR MUTANT ACTIVITY DETECTED";
+    }
+    else if (value <= 50) {
+      status.textContent = "NORMAL OPERATIONAL BULLSHIT";
+      warning.textContent = "SLUDGE LEVELS ACCEPTABLE";
+    }
+    else if (value <= 75) {
+      status.textContent = "CAPTAIN JAKODA ACTIVE";
+      warning.textContent = "OPERATIONAL BULLSHIT ELEVATED";
+    }
+    else {
+      status.textContent = "AHHHHHHHHHH — DRRRRTTTTT";
+      warning.textContent = "MUTANT EXTINCTION EVENT IN PROGRESS";
+      panel.classList.add("fkd-critical");
+    }
+  }
+
+  // CURRENT HQ READING
+  setFKD(58);
+</script>
     </script>
 </body>
 </html>
