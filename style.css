@@ -4116,3 +4116,33 @@ footer::before {
   }
 
 }
+/* =========================================================
+   FKD — IPAD PORTRAIT FIX
+   ========================================================= */
+
+@media (min-width: 700px) and (max-width: 900px) {
+
+  .fkd-panel {
+    grid-column: 1 / -1;
+    width: min(100%, 720px);
+    max-width: 720px;
+    justify-self: center;
+    box-sizing: border-box;
+  }
+
+}
+
+
+/* =========================================================
+   TERMINAL TRAFFIC — FILL EMPTY DESKTOP ROW
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  article:has(#terminal-visitors) {
+    grid-column: 1 / -1;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+}
