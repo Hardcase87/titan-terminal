@@ -3822,3 +3822,281 @@ footer::before {
         transition: none;
     }
 }
+/* =========================================================
+   FKD INDEX — TITAN TERMINAL SLIME MODULE
+   ========================================================= */
+
+.fkd-panel {
+  position: relative;
+  width: min(100%, 620px);
+  margin: 28px auto;
+  padding: 24px 24px 20px;
+  overflow: hidden;
+
+  border: 2px solid #b8ff00;
+  border-radius: 18px;
+
+  background:
+    radial-gradient(circle at 50% 0%, rgba(184,255,0,.12), transparent 42%),
+    linear-gradient(180deg, rgba(12,18,12,.97), rgba(2,5,4,.99));
+
+  box-shadow:
+    0 0 8px rgba(184,255,0,.75),
+    0 0 22px rgba(184,255,0,.35),
+    inset 0 0 30px rgba(184,255,0,.05);
+
+  color: #f5ffe0;
+  isolation: isolate;
+}
+
+.fkd-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .14;
+
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.035) 0px,
+      rgba(255,255,255,.035) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+}
+
+/* slime glow */
+.fkd-panel::after {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 90px;
+  left: 50%;
+  bottom: -50px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+
+  background: rgba(184,255,0,.20);
+  filter: blur(24px);
+  z-index: -1;
+}
+
+/* HEADER */
+.fkd-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.fkd-label {
+  font-family: "Arial Black", Impact, sans-serif;
+  font-size: clamp(1.1rem, 3vw, 1.55rem);
+  letter-spacing: .12em;
+  color: #b8ff00;
+  text-shadow:
+    0 0 6px #b8ff00,
+    0 0 14px rgba(184,255,0,.65);
+}
+
+.fkd-status {
+  font-family: monospace;
+  font-size: .75rem;
+  letter-spacing: .08em;
+  color: #ff3bbf;
+  text-align: right;
+  text-shadow: 0 0 8px rgba(255,59,191,.65);
+}
+
+/* NUMBER */
+.fkd-core {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  margin: 2px 0 12px;
+}
+
+.fkd-number {
+  font-family: "Arial Black", Impact, sans-serif;
+  font-size: clamp(4rem, 14vw, 7rem);
+  line-height: .9;
+  color: #d8ff29;
+
+  text-shadow:
+    0 0 7px #b8ff00,
+    0 0 18px rgba(184,255,0,.8),
+    4px 4px 0 #163b00;
+}
+
+.fkd-max {
+  font-family: monospace;
+  font-size: 1rem;
+  color: #78915c;
+}
+
+/* METER */
+.fkd-meter {
+  position: relative;
+  height: 22px;
+  border: 1px solid rgba(184,255,0,.7);
+  border-radius: 999px;
+  overflow: hidden;
+
+  background: #070c07;
+
+  box-shadow:
+    inset 0 0 12px rgba(0,0,0,.9),
+    0 0 10px rgba(184,255,0,.2);
+}
+
+.fkd-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 58%;
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #57ff00 0%,
+      #b8ff00 48%,
+      #fff200 70%,
+      #ff3bbf 100%
+    );
+
+  box-shadow:
+    0 0 10px rgba(184,255,0,.85),
+    0 0 22px rgba(255,59,191,.45);
+
+  transition: width .7s cubic-bezier(.2,.9,.25,1);
+}
+
+.fkd-fill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at 10% 45%, rgba(255,255,255,.85) 0 2px, transparent 3px),
+    radial-gradient(circle at 26% 70%, rgba(255,255,255,.55) 0 1px, transparent 2px),
+    radial-gradient(circle at 46% 36%, rgba(255,255,255,.7) 0 2px, transparent 3px),
+    radial-gradient(circle at 66% 68%, rgba(255,255,255,.45) 0 1px, transparent 2px),
+    radial-gradient(circle at 84% 34%, rgba(255,255,255,.8) 0 2px, transparent 3px);
+
+  animation: fkdBubbleShift 2.4s linear infinite;
+}
+
+@keyframes fkdBubbleShift {
+  from { transform: translateX(-8px); }
+  to   { transform: translateX(12px); }
+}
+
+/* SCALE */
+.fkd-scale {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  margin-top: 8px;
+
+  font-family: monospace;
+  font-size: .62rem;
+  letter-spacing: .05em;
+  color: #75806b;
+}
+
+.fkd-scale span:nth-child(2),
+.fkd-scale span:nth-child(3) {
+  text-align: center;
+}
+
+.fkd-scale span:last-child {
+  text-align: right;
+}
+
+/* WARNING */
+.fkd-warning {
+  margin-top: 14px;
+  padding: 9px 12px;
+  border: 1px solid rgba(255,59,191,.45);
+  border-radius: 8px;
+
+  background: rgba(255,59,191,.055);
+
+  font-family: monospace;
+  font-weight: 700;
+  font-size: .72rem;
+  letter-spacing: .11em;
+  text-align: center;
+
+  color: #ff70cf;
+  text-shadow: 0 0 8px rgba(255,59,191,.7);
+
+  animation: fkdWarningPulse 1.7s ease-in-out infinite;
+}
+
+@keyframes fkdWarningPulse {
+  0%, 100% { opacity: .72; }
+  50%      { opacity: 1; }
+}
+
+/* SLIME DRIPS */
+.fkd-slime-drip {
+  position: absolute;
+  top: -3px;
+  width: 18px;
+  background: linear-gradient(#d8ff29, #57ff00);
+  border-radius: 0 0 12px 12px;
+
+  box-shadow:
+    0 0 8px rgba(184,255,0,.8),
+    0 0 18px rgba(184,255,0,.4);
+
+  opacity: .85;
+}
+
+.drip-one {
+  left: 12%;
+  height: 26px;
+}
+
+.drip-two {
+  left: 44%;
+  height: 42px;
+  width: 13px;
+}
+
+.drip-three {
+  right: 15%;
+  height: 20px;
+  width: 22px;
+}
+
+/* high danger animation */
+.fkd-panel.fkd-critical {
+  animation: fkdCriticalShake .25s linear infinite alternate;
+  border-color: #ff3bbf;
+}
+
+@keyframes fkdCriticalShake {
+  from { transform: translateX(-1px); }
+  to   { transform: translateX(1px); }
+}
+
+@media (max-width: 600px) {
+  .fkd-panel {
+    padding: 20px 16px 17px;
+  }
+
+  .fkd-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .fkd-status {
+    text-align: left;
+  }
+}
