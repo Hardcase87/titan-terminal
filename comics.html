@@ -6,7 +6,7 @@
 
     <meta
         name="description"
-        content="Titan City Comics — read Disaster in the Skies and The Ooze Below, official comics from Tactical Terror Division."
+        content="Titan City Comics — read Disaster in the Skies, The Ooze Below and Issue #3: Jungle Death Command, official comics from Tactical Terror Division."
     >
 
     <title>📚 Titan City Comics</title>
@@ -327,6 +327,98 @@
             line-height: 1.6;
         }
 
+        .issue-card.issue-three {
+            border-left-color: var(--cyan);
+            box-shadow:
+                0 20px 55px rgba(0, 0, 0, 0.62),
+                0 0 30px rgba(0, 255, 255, 0.12),
+                0 0 42px rgba(124, 252, 0, 0.08);
+        }
+
+        .issue-three .comic-cover {
+            border-color: var(--cyan);
+            box-shadow:
+                0 0 18px rgba(0, 255, 255, 0.35),
+                0 20px 45px rgba(0, 0, 0, 0.65);
+        }
+
+        .issue-three .issue-subtitle {
+            color: var(--green);
+        }
+
+        .issue-three .action-button.primary {
+            color: var(--green);
+            border-color: var(--green);
+        }
+
+        .issue-three .action-button.primary:hover,
+        .issue-three .action-button.primary:focus {
+            color: #080808;
+            background: var(--green);
+            box-shadow: 0 0 20px rgba(124, 252, 0, 0.55);
+        }
+
+        .last-free-badge {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            z-index: 5;
+            padding: 8px 13px;
+            color: #080808;
+            background: linear-gradient(90deg, var(--green), var(--cyan));
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 0 18px rgba(0, 255, 255, 0.45);
+        }
+
+        .coming-card {
+            position: relative;
+            overflow: hidden;
+            transition: 0.2s ease;
+        }
+
+        .coming-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(135deg, rgba(124, 252, 0, 0.05), transparent 45%, rgba(255, 20, 147, 0.06));
+        }
+
+        .coming-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--green);
+            box-shadow: 0 0 22px rgba(124, 252, 0, 0.16);
+        }
+
+        .coming-kicker {
+            display: block;
+            color: var(--green);
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .coming-title {
+            display: block;
+            color: var(--white);
+            font-size: 20px;
+            line-height: 1.15;
+            margin-bottom: 8px;
+        }
+
+        .coming-status {
+            display: block;
+            color: var(--pink);
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
         footer {
             margin-top: 55px;
             padding: 40px 20px;
@@ -380,7 +472,8 @@
                 padding: 20px;
             }
 
-            .new-badge {
+            .new-badge,
+            .last-free-badge {
                 top: 12px;
                 right: 12px;
             }
@@ -401,7 +494,7 @@
             <a class="brand-mini" href="index.html">
                 <span class="brand-sigil" aria-hidden="true">
                     <span class="sigil-fallback">TTD</span>
-                    <img src="assets/titan-sigil.png" alt="" onerror="this.style.display='none'">
+                    <img src="assets/titan-sigil.PNG" alt="" onerror="this.style.display='none'">
                 </span>
                 <span class="brand-wordmark">TITAN TERMINAL</span>
             </a>
@@ -427,7 +520,7 @@
             </p>
 
             <span class="archive-status">
-                2 Issues Available
+                3 Issues Available • Final Free Issue Live
             </span>
         </header>
 
@@ -556,40 +649,114 @@
 
         </article>
 
+        <!-- ISSUE #3 -->
+        <article class="issue-card issue-three">
+
+            <span class="last-free-badge">Last Free Issue</span>
+
+            <div>
+                <img
+                    src="./titan-city-issue-3-cover.PNG"
+                    alt="Titan City Issue 3: Jungle Death Command"
+                    class="comic-cover"
+                    loading="lazy"
+                >
+            </div>
+
+            <div>
+                <div class="issue-number">
+                    Titan City — Issue #3 Special
+                </div>
+
+                <h2>Jungle Death Command</h2>
+
+                <div class="issue-subtitle">
+                    They came for a rescue. They found a war.
+                </div>
+
+                <p class="issue-copy">
+                    Far from Titan City, a TDI rescue team drops onto jungle moon
+                    K-87 to recover a missing colonial outpost. REB, Vexxa Blaze
+                    and the Jungle Death Command expect bugs, bad weather and a
+                    dirty extraction. Something in the canopy is already hunting them.
+                </p>
+
+                <p class="issue-copy">
+                    The rescue turns into a full-scale hunt through acid rivers,
+                    biomechanical predators and a buried hive. This classified side
+                    mission breaks away from the main Subject Omega storyline for
+                    twelve pages of jungle filth, M60 fire and zero retreat.
+                </p>
+
+                <div class="intel-box">
+                    <strong>Mission Status:</strong> Available now — FREE<br>
+                    <strong>Strike Team:</strong> Jungle Death Command<br>
+                    <strong>Location:</strong> Titan Jungle Moon K-87<br>
+                    <strong>Threat Level:</strong> Hunter-Class<br>
+                    <strong>Archive Note:</strong> Final free issue before paid mission files
+                </div>
+
+                <div class="action-row">
+                    <a
+                        class="action-button primary"
+                        href="./titan-city-issue-3-jungle-death-command.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Read Issue Free
+                    </a>
+
+                    <a class="action-button" href="index.html">
+                        Return to Terminal
+                    </a>
+                </div>
+            </div>
+
+        </article>
+
         <section class="section">
             <h3>⚠️ Current Incident Report</h3>
 
             <p>
-                The cargo recovered after the Con Casino blimp crash has
-                contaminated Titan Harbor. TDI has imposed a total lockdown,
-                but recovery crews are missing, mutations are appearing
-                throughout the city and the secret containment chambers
-                beneath Dock 87 are empty.
+                <strong>MAIN STORY:</strong> Subject Omega remains unresolved beneath
+                Titan Harbor after the events of The Ooze Below. TDI containment
+                records are compromised and something gigantic is still moving
+                beneath the glowing water.
             </p>
 
             <p>
-                Hardcase escaped with a classified Subject Omega file.
-                Something gigantic remains beneath the glowing water.
+                <strong>SIDE MISSION:</strong> Issue #3 leaves the harbor behind for
+                Jungle Moon K-87. Jungle Death Command was sent to recover a lost
+                colonial outpost. The rescue became a hunt. The jungle remembers.
             </p>
         </section>
 
         <section class="section">
-            <h3>🗃️ Incoming Mission Files</h3>
+            <h3>🗃️ Next Mission Files</h3>
 
             <div class="coming-grid">
                 <div class="coming-card">
-                    ISSUE #3<br>
-                    SUBJECT OMEGA
+                    <div>
+                        <span class="coming-kicker">Issue #4 // Next Mission</span>
+                        <span class="coming-title">HELL COMPANY?</span>
+                        <span class="coming-status">Classified • In Development</span>
+                    </div>
                 </div>
 
                 <div class="coming-card">
-                    SPECIAL FILE<br>
-                    HARDCASE ’87
+                    <div>
+                        <span class="coming-kicker">TDI Operator Dossier</span>
+                        <span class="coming-title">HARDCASE ’87</span>
+                        <span class="coming-status">Special File • Incoming</span>
+                    </div>
                 </div>
 
                 <div class="coming-card">
-                    TITAN BABE FILE<br>
-                    NIKKI NITRO
+                    <div>
+                        <span class="coming-kicker">Titan Babe File</span>
+                        <span class="coming-title">NIKKI NITRO</span>
+                        <span class="coming-status">Train • Shred • Obey</span>
+                    </div>
                 </div>
             </div>
         </section>
