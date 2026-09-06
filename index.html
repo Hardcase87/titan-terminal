@@ -1,307 +1,173 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#020203">
-<meta name="description" content="Titan Terminal — forbidden underground access node for Tactical Terror Division and Titan City.">
-<title>Titan Terminal // Forbidden Node</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800;1,900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-<style>
-:root{
-  --void:#020203;--ink:#050507;--panel:#08080b;--panel2:#0b080e;
-  --pink:#ff1694;--deep:#7d0cff;--lime:#b4ff26;--blood:#ff304f;
-  --white:#f1efe8;--muted:#777782;--line:rgba(255,22,148,.24);
-  --ghost:rgba(255,255,255,.045);--glow:0 0 26px rgba(255,22,148,.14)
-}
-*{box-sizing:border-box}
-html{background:var(--void);scroll-behavior:smooth}
-body{
-  margin:0;color:var(--white);font-family:'Share Tech Mono',monospace;min-height:100vh;overflow-x:hidden;
-  background:
-    radial-gradient(circle at 50% -10%,rgba(117,0,172,.13),transparent 30%),
-    radial-gradient(circle at 80% 35%,rgba(255,22,148,.055),transparent 28%),
-    linear-gradient(180deg,#020203,#050307 55%,#020203);
-}
-body:before{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:1000;opacity:.42;
-  background:
-    repeating-linear-gradient(0deg,rgba(255,255,255,.017) 0,rgba(255,255,255,.017) 1px,transparent 1px,transparent 4px),
-    radial-gradient(circle at center,transparent 42%,rgba(0,0,0,.55) 100%);
-}
-body:after{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
-  background-image:linear-gradient(rgba(255,22,148,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(180,255,38,.018) 1px,transparent 1px);
-  background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 72%);
-}
-a{color:inherit;text-decoration:none}
-.shell{width:min(1260px,calc(100% - 28px));margin:auto}
-.display{font-family:'Barlow Condensed',Impact,sans-serif;font-style:italic;font-weight:900;text-transform:uppercase;letter-spacing:.035em}
-.code{font-size:11px;color:var(--lime);letter-spacing:.16em;text-transform:uppercase}
-.pink{color:var(--pink)} .lime{color:var(--lime)} .blood{color:var(--blood)}
-.top{
-  position:sticky;top:0;z-index:90;background:rgba(2,2,3,.94);backdrop-filter:blur(15px);
-  border-bottom:1px solid rgba(255,22,148,.21);box-shadow:0 12px 40px rgba(0,0,0,.5)
-}
-.topin{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{display:flex;align-items:center;gap:12px}
-.brand img{width:43px;height:43px;object-fit:contain;background:#050407;border:1px solid rgba(180,255,38,.27);border-radius:50%;filter:drop-shadow(0 0 12px rgba(255,22,148,.25))}
-.brand strong{font:900 italic 26px/1 'Barlow Condensed',sans-serif;color:var(--white);letter-spacing:.07em}
-.brand strong em{color:var(--pink);font-style:normal}
-.clearance{text-align:right;font-size:10px;line-height:1.55;color:#8d8d95;letter-spacing:.09em}
-.clearance b{color:var(--lime)}
-.forbidden{
-  border-bottom:1px solid rgba(180,255,38,.16);background:#050406;overflow:hidden
-}
-.track{display:flex;width:max-content;animation:ticker 34s linear infinite;padding:8px 0;font-size:11px;letter-spacing:.11em;text-transform:uppercase}
-.track span{padding-right:54px}.track .x{color:var(--pink)}.track .g{color:var(--lime)}@keyframes ticker{to{transform:translateX(-50%)}}
-
-.hero{
-  position:relative;margin-top:14px;min-height:590px;overflow:hidden;
-  border:1px solid rgba(255,22,148,.24);background:#030305;box-shadow:0 28px 70px rgba(0,0,0,.52)
-}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.62) brightness(.42) contrast(1.18) hue-rotate(10deg)}
-.hero:before{content:"";position:absolute;inset:0;z-index:2;background:
-  radial-gradient(circle at 71% 45%,rgba(255,22,148,.12),transparent 25%),
-  linear-gradient(90deg,rgba(1,1,2,.98) 0%,rgba(3,2,5,.9) 40%,rgba(2,1,4,.45) 72%,rgba(2,1,3,.84) 100%),
-  linear-gradient(0deg,rgba(1,1,2,.96),transparent 52%);
-}
-.hero:after{content:"";position:absolute;z-index:3;inset:18px;border:1px solid rgba(180,255,38,.09);pointer-events:none}
-.hero-copy{position:relative;z-index:5;padding:78px 56px 64px;max-width:760px}
-.eyebrow{color:var(--lime);font-size:12px;letter-spacing:.24em;text-transform:uppercase}
-.hero h1{font-size:clamp(66px,10vw,136px);line-height:.72;margin:20px 0 20px;color:#e9e7e2;text-shadow:0 0 40px rgba(255,22,148,.12)}
-.hero h1 em{display:block;color:var(--pink);font-style:italic}
-.hero .warning{max-width:670px;color:#b7b4bb;font-size:15px;line-height:1.6}
-.seal{
-  position:absolute;z-index:5;right:45px;top:50%;transform:translateY(-50%);
-  width:250px;aspect-ratio:1;border-radius:50%;border:1px solid rgba(180,255,38,.28);
-  display:grid;place-items:center;background:radial-gradient(circle,rgba(255,22,148,.08),rgba(0,0,0,.5) 54%,rgba(0,0,0,.83));
-  box-shadow:0 0 0 11px rgba(255,22,148,.018),0 0 65px rgba(125,12,255,.15)
-}
-.seal:before,.seal:after{content:"";position:absolute;border-radius:50%;border:1px dashed rgba(255,22,148,.22);inset:20px}
-.seal:after{inset:48px;border-color:rgba(180,255,38,.17)}
-.seal img{position:relative;width:112px;height:112px;filter:grayscale(.3) brightness(.78) drop-shadow(0 0 18px rgba(255,22,148,.25));object-fit:contain}
-.seal small{position:absolute;bottom:31px;color:var(--pink);font-size:9px;letter-spacing:.18em}
-.mark{position:absolute;z-index:6;font-size:10px;color:#777;letter-spacing:.12em;text-transform:uppercase}
-.mark.tl{left:24px;top:24px}.mark.tr{right:24px;top:24px;text-align:right}.mark.bl{left:24px;bottom:22px}.mark.br{right:24px;bottom:22px;text-align:right;color:var(--lime)}
-.cta{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;
-  border:1px solid rgba(255,255,255,.12);background:#07070a;color:#d9d7dc;
-  font:800 italic 18px 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.07em;transition:.16s
-}
-.btn:hover{transform:translateY(-2px);border-color:var(--pink);box-shadow:var(--glow)}
-.btn.primary{background:linear-gradient(90deg,#6f0a59,var(--pink));color:#fff;border-color:rgba(255,22,148,.72)}
-.btn.lime{border-color:rgba(180,255,38,.36);color:var(--lime)}
-.accessbar{
-  margin:10px 0;display:grid;grid-template-columns:1.3fr .7fr;gap:10px
-}
-.access,.omen{
-  border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,#08070a,#050507);padding:15px 18px;position:relative;overflow:hidden
-}
-.access:before,.omen:before{content:"";position:absolute;left:0;top:0;width:3px;height:100%;background:var(--pink)}
-.omen:before{background:var(--lime)}
-.access b,.omen b{display:block;font:900 24px 'Barlow Condensed',sans-serif;text-transform:uppercase}
-.access small,.omen small{color:#74747d;letter-spacing:.12em;text-transform:uppercase}
-.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0}
-.metric{padding:16px 17px;border:1px solid rgba(255,255,255,.07);background:#07070a;position:relative}
-.metric:after{content:"";position:absolute;right:9px;top:9px;width:6px;height:6px;background:var(--lime);box-shadow:0 0 11px var(--lime)}
-.metric small{display:block;color:#686872;text-transform:uppercase;letter-spacing:.11em}
-.metric strong{display:block;margin-top:5px;font:900 29px 'Barlow Condensed',sans-serif;color:#e9e7e2}
-.metric:nth-child(3) strong{color:var(--pink)}
-.section{padding:50px 0 8px}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.07)}
-.section h2{font-size:clamp(36px,5vw,60px);line-height:.85;margin:0}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.card{
-  min-height:202px;padding:20px;display:flex;flex-direction:column;position:relative;overflow:hidden;
-  border:1px solid rgba(255,255,255,.07);background:
-  linear-gradient(140deg,rgba(255,22,148,.03),transparent 38%),#07070a;transition:.17s
-}
-.card:after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--pink),transparent);opacity:.38}
-.card:hover{border-color:rgba(255,22,148,.36);background:#0a080d;transform:translateY(-2px)}
-.card .tag{font-size:10px;color:var(--pink);letter-spacing:.15em;text-transform:uppercase}
-.card h3{font:900 italic 30px 'Barlow Condensed',sans-serif;text-transform:uppercase;margin:10px 0 6px}
-.card p{font-size:13px;color:#90909a;line-height:1.5;margin:0 0 20px}
-.card .go{margin-top:auto;color:var(--lime);font-size:11px;letter-spacing:.11em;text-transform:uppercase}
-.card.black{background:radial-gradient(circle at 100% 0,rgba(125,12,255,.10),transparent 36%),#050507;border-color:rgba(125,12,255,.25)}
-.card.ritual{background:radial-gradient(circle at 0 100%,rgba(255,22,148,.09),transparent 40%),#08060a;border-color:rgba(255,22,148,.2)}
-.intel{display:grid;grid-template-columns:1.2fr .8fr;gap:10px}
-.brief,.vault{
-  padding:26px;border:1px solid rgba(255,255,255,.07);background:#060609;position:relative;overflow:hidden
-}
-.brief h3,.vault h3{font-size:40px;line-height:.9;margin:7px 0 10px}
-.brief p,.vault p{color:#8d8d96;line-height:1.6}
-.vault{background:radial-gradient(circle at 50% 20%,rgba(125,12,255,.1),transparent 55%),#050407;border-color:rgba(125,12,255,.25)}
-.vault .sig{font-size:54px;color:var(--pink);opacity:.72;margin-bottom:7px}
-.whispers{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
-.whisper{padding:18px;border:1px dashed rgba(255,22,148,.18);background:#050406}
-.whisper b{display:block;font:900 23px 'Barlow Condensed',sans-serif;text-transform:uppercase}
-.whisper p{font-size:12px;color:#777782;margin:8px 0 0;line-height:1.5}
-.legacy{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
-.legacy a{padding:15px;border:1px solid rgba(255,255,255,.07);background:#050507;color:#aaaab2}
-.legacy a:hover{border-color:rgba(180,255,38,.28);color:#fff}
-.legacy b{display:block;font:800 italic 21px 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#e4e2de}
-.legacy small{color:#656570}
-footer{margin-top:55px;padding:23px 0 38px;border-top:1px solid rgba(255,255,255,.06);color:#5e5e67;font-size:10px;letter-spacing:.11em;text-transform:uppercase}
-.foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
-#veil{
-  position:fixed;inset:0;z-index:500;background:#010102;display:grid;place-items:center;padding:22px;transition:.5s ease;
-}
-#veil.open{opacity:0;visibility:hidden}
-.gate{width:min(640px,100%);text-align:center;border:1px solid rgba(255,22,148,.22);padding:38px 26px;background:radial-gradient(circle at center,rgba(125,12,255,.08),transparent 58%),#040305;box-shadow:0 0 80px #000}
-.gate img{width:86px;height:86px;object-fit:contain;filter:brightness(.8) drop-shadow(0 0 18px rgba(255,22,148,.25))}
-.gate h2{font:900 italic clamp(42px,8vw,76px)/.8 'Barlow Condensed',sans-serif;text-transform:uppercase;margin:18px 0 12px}
-.gate h2 span{color:var(--pink)}
-.gate p{color:#85858f;font-size:12px;line-height:1.6}
-.enter{margin-top:18px;cursor:pointer;min-height:50px;padding:0 24px;border:1px solid rgba(180,255,38,.4);background:#09090b;color:var(--lime);font:900 italic 19px 'Barlow Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase}
-.enter:hover{box-shadow:0 0 32px rgba(180,255,38,.12)}
-@media(max-width:900px){
-  .cards{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr 1fr}.intel{grid-template-columns:1fr}.legacy{grid-template-columns:1fr 1fr}.seal{opacity:.22;right:-55px}.hero-copy{padding:70px 28px 58px}.accessbar{grid-template-columns:1fr}
-}
-@media(max-width:560px){
-  .shell{width:min(100% - 18px,1260px)}.topin{min-height:58px}.clearance{display:none}.brand strong{font-size:21px}
-  .hero{min-height:620px}.hero-copy{padding:78px 18px 52px}.hero h1{font-size:68px}.seal{width:220px;right:-80px;top:43%}
-  .cards,.metrics,.whispers,.legacy{grid-template-columns:1fr}.section{padding-top:38px}.section-head{align-items:start;flex-direction:column}.cta{display:grid}.btn{width:100%}
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#050306">
+  <meta name="description" content="Mutant City — same city, different apex predator. Comics, characters, districts and classified mutation files from Tactical Terror Division.">
+  <title>Mutant City // Join the Mutation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800;1,900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="mutant-city.css">
 </head>
 <body>
-<div id="veil">
-  <div class="gate">
-    <img src="assets/titan-sigil.PNG" alt="TTD">
-    <div class="code">UNLISTED NODE // SUB-LEVEL OMEGA</div>
-    <h2>FORBIDDEN <span>ENTRY</span></h2>
-    <p>THIS TERMINAL IS NOT PART OF THE PUBLIC NETWORK.<br>ACCESS IS LOGGED. IDENTITIES ARE NOT.</p>
-    <button class="enter" id="enter-node">BREACH THE TERMINAL →</button>
-  </div>
-</div>
+  <a class="skip" href="#main">Skip to Mutant City</a>
 
-<header class="top">
-  <div class="shell topin">
-    <a class="brand" href="#top"><img src="assets/titan-sigil.PNG" alt="TTD"><strong>TITAN <em>TERMINAL</em></strong></a>
-    <div class="clearance">NODE // <b>OMEGA-7</b><br>STATUS // UNLISTED<br>TRACE // NULL</div>
-  </div>
-</header>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Mutant City home">
+      <img src="assets/mutant-city-logo.webp" alt="">
+      <span><b>MUTANT</b> CITY</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#incident">Issue #01</a>
+      <a href="#survivors">Survivors</a>
+      <a href="map.html">Districts</a>
+      <a href="classified.html">Terminal</a>
+      <a class="buy-mini" href="https://www.paypal.com/ncp/payment/HSCU7LTX6WRTN">Buy $2.99</a>
+    </nav>
+  </header>
 
-<div class="forbidden"><div class="track">
-  <span class="x">RESTRICTED ACCESS // DO NOT MIRROR</span><span class="g">ALL OPERATIVES REMAIN UNSEEN</span><span>THE PUBLIC SITE IS A DECOY</span><span class="x">BLACK VAULT HANDSHAKE ACCEPTED</span><span>NO TRACE // NO RECORD // NO RETURN</span><span class="g">TTD OPERATES BELOW</span>
-  <span class="x">RESTRICTED ACCESS // DO NOT MIRROR</span><span class="g">ALL OPERATIVES REMAIN UNSEEN</span><span>THE PUBLIC SITE IS A DECOY</span><span class="x">BLACK VAULT HANDSHAKE ACCEPTED</span><span>NO TRACE // NO RECORD // NO RETURN</span><span class="g">TTD OPERATES BELOW</span>
-</div></div>
-
-<main class="shell" id="top">
-<section class="hero">
-  <img src="titan-city-hero.jpg" alt="Titan City skyline">
-  <div class="mark tl">TTD-87 // RECOVERED FEED<br>SUBLEVEL 07</div>
-  <div class="mark tr">ENCRYPTION // OMEGA<br>VIEWER // UNKNOWN</div>
-  <div class="mark bl">WE OPERATE BELOW.<br>SO OTHERS CAN LIVE ABOVE.</div>
-  <div class="mark br">SIGNAL // BURIED<br>ACCESS // GRANTED</div>
-  <div class="seal"><img src="assets/titan-sigil.PNG" alt=""><small>THE DIVISION SEES YOU</small></div>
-  <div class="hero-copy">
-    <div class="eyebrow">TACTICAL TERROR DIVISION // UNDERGROUND COMMAND NODE</div>
-    <h1 class="display">RESTRICTED <em>ACCESS</em></h1>
-    <p class="warning">You found the room behind the room. The feed beneath the feed. Recovered files, black-vault projects, unstable districts, TBN intercepts and Titan City incidents that were never meant to survive daylight.</p>
-    <div class="cta">
-      <a class="btn primary" href="https://tacticalterrordivision.com/">EXIT TO PUBLIC HQ</a>
-      <a class="btn lime" href="https://tacticalterrordivision.com/dossiers.html">OPEN PERSONNEL VAULT</a>
-      <a class="btn" href="https://tacticalterrordivision.com/comics.html">READ CLASSIFIED FILES</a>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>CONTAINMENT FAILED</span><span class="pink">THE OOZE DIDN'T LEAK. IT HATCHED.</span><span>SUBJECT 87 ACTIVE</span><span class="lime">JOIN THE MUTATION</span><span>SAME CITY. DIFFERENT APEX PREDATOR.</span>
+      <span>CONTAINMENT FAILED</span><span class="pink">THE OOZE DIDN'T LEAK. IT HATCHED.</span><span>SUBJECT 87 ACTIVE</span><span class="lime">JOIN THE MUTATION</span><span>SAME CITY. DIFFERENT APEX PREDATOR.</span>
     </div>
   </div>
-</section>
 
-<section class="accessbar">
-  <div class="access"><small>SECURITY PROTOCOL // OMEGA</small><b>NO TRACE. NO RECORD. NO RETURN.</b></div>
-  <div class="omen"><small>TERMINAL TIME // ADELAIDE</small><b id="node-time">--:--:--</b></div>
-</section>
+  <main id="main">
+    <section class="hero" id="top">
+      <img class="hero-art" src="assets/mutant-city-hero.webp" alt="Nikki Nitro facing the Mutant City containment tower">
+      <div class="hero-shade"></div>
+      <div class="hero-grain"></div>
+      <div class="hero-copy">
+        <div class="signal"><i></i> TDI TRANSMISSION // UNIVERSE BREACH CONFIRMED</div>
+        <img class="hero-logo" src="assets/mutant-city-logo.webp" alt="TTD Mutant City">
+        <p class="strap">SAME CITY.<br><em>DIFFERENT APEX PREDATOR.</em></p>
+        <p class="intro">Titan City was built to manufacture progress. Now the machinery is growing teeth—and Hardcase 87 and Nikki Nitro are standing between the mutation and everybody still pretending it can be contained.</p>
+        <div class="actions">
+          <a class="button primary" href="#incident">ENTER MUTANT CITY</a>
+          <a class="button toxic" href="https://www.paypal.com/ncp/payment/HSCU7LTX6WRTN">BUY THE HATCH // $2.99</a>
+          <a class="button ghost" href="classified.html">BREACH THE TERMINAL</a>
+        </div>
+      </div>
+      <div class="hero-status">
+        <span>POPULATION // MUTATING</span>
+        <span>CONTAINMENT // <b>FAILED</b></span>
+        <span>THREAT // APEX</span>
+      </div>
+    </section>
 
-<section class="metrics" aria-label="terminal metrics">
-  <div class="metric"><small>Node Status</small><strong>UNLISTED</strong></div>
-  <div class="metric"><small>Darknet Tunnel</small><strong>OPEN</strong></div>
-  <div class="metric"><small>Threat Level</small><strong>OMEGA</strong></div>
-  <div class="metric"><small>Protocol</small><strong>CHAOS</strong></div>
-</section>
+    <section class="section incident" id="incident">
+      <div class="section-label">CURRENT INCIDENT // ENTRY POINT</div>
+      <div class="issue-grid">
+        <figure class="cover-wrap">
+          <img src="assets/the-hatch-cover.webp" alt="Cover of TTD Mutant City: The Hatch, Issue 01">
+          <figcaption>ISSUE #01 // SIX-PAGE WELCOME ASSAULT</figcaption>
+        </figure>
+        <article class="issue-copy">
+          <span class="hazard">NEW RELEASE // CONTAINMENT BREACH</span>
+          <h1>THE<br><b>HATCH</b></h1>
+          <p class="lede">The ooze didn't leak. It hatched.</p>
+          <p>Six pages of pure Mutant City impact: Hardcase and Nikki chemistry, industrial body horror, automatic weapons, impossible biology and one vicious final reveal.</p>
+          <ul class="manifest">
+            <li>Digital comic PDF</li>
+            <li>Issue #01 entry point</li>
+            <li>Instant PayPal checkout</li>
+            <li>No sensible supervision</li>
+          </ul>
+          <a class="purchase" href="https://www.paypal.com/ncp/payment/HSCU7LTX6WRTN">
+            <span>BUY DIGITAL ISSUE</span>
+            <strong>$2.99</strong>
+            <small>OPEN SECURE CHECKOUT →</small>
+          </a>
+        </article>
+      </div>
+    </section>
 
-<section class="section">
-  <div class="section-head">
-    <div><div class="code">BLACK NETWORK // ACTIVE PATHS</div><h2 class="display">FORBIDDEN SYSTEMS</h2></div>
-    <div class="code">PUBLIC INDEX // BYPASSED</div>
-  </div>
-  <div class="cards">
-    <a class="card black" href="https://tacticalterrordivision.com/"><span class="tag">DECOY SURFACE NODE</span><h3>TTD HQ</h3><p>The public-facing command layer. Clean enough for daylight. Dangerous enough to remain useful.</p><span class="go">EXIT TO SURFACE →</span></a>
-    <a class="card ritual" href="https://tacticalterrordivision.com/arcade.html"><span class="tag">COMBAT SIMULATION ARRAY</span><h3>TTD Arcade</h3><p>Operational simulations, mutant incidents and arcade cabinets linked to the division's least responsible hardware.</p><span class="go">INITIATE SIMULATION →</span></a>
-    <a class="card black" href="https://tacticalterrordivision.com/death-circuit.html"><span class="tag">PURSUIT PROTOCOL</span><h3>Death Circuit</h3><p>Six districts. Nitro. Neon. Surveillance disabled. Liability classified.</p><span class="go">BREAK CONTAINMENT →</span></a>
-    <a class="card" href="https://tacticalterrordivision.com/tbn.html"><span class="tag">INTERCEPTED BROADCAST</span><h3>TBN</h3><p>Propaganda, emergency feeds and Grim Ledger explaining why catastrophe remains financially constructive.</p><span class="go">HIJACK SIGNAL →</span></a>
-    <a class="card ritual" href="https://tacticalterrordivision.com/comics.html"><span class="tag">ARCHIVE // REDACTED</span><h3>Comic Vault</h3><p>Mainline incidents, standalone specials, Omega threats and evidence recovered from timelines best left sealed.</p><span class="go">BREAK ARCHIVE SEAL →</span></a>
-    <a class="card black" href="https://tacticalterrordivision.com/dossiers.html"><span class="tag">PERSONNEL // OMEGA</span><h3>Dossiers</h3><p>Hardcase ’87, Nikki Nitro, Lord Gamma and the personnel files command insists do not officially exist.</p><span class="go">OPEN DOSSIERS →</span></a>
-    <a class="card" href="https://tacticalterrordivision.com/map.html"><span class="tag">SUBTERRANEAN GRID</span><h3>City Grid</h3><p>Districts, incidents and access routes through a city that keeps building new ways to become hostile.</p><span class="go">TRACE TITAN CITY →</span></a>
-    <a class="card black" href="https://tacticalterrordivision.com/store.html"><span class="tag">CONTRABAND DISTRIBUTION</span><h3>Loot Vault</h3><p>Comics, sanctioned contraband and division property that accounting has stopped asking about.</p><span class="go">ENTER BLACK MARKET →</span></a>
-    <a class="card ritual" href="https://www.instagram.com/titanttd_official/" target="_blank" rel="noopener noreferrer"><span class="tag">OUTSIDE SIGNAL</span><h3>Instagram Feed</h3><p>Neon transmissions leaking beyond the perimeter. Reels, characters and visual evidence from the city.</p><span class="go">FOLLOW @TITANTTD_OFFICIAL →</span></a>
-  </div>
-</section>
+    <section class="section" id="survivors">
+      <div class="section-head">
+        <div>
+          <div class="section-label">SURVIVOR INDEX // ACTIVE ASSETS</div>
+          <h2>BUILT TO SURVIVE.<br><b>BORN TO FIGHT.</b></h2>
+        </div>
+        <p>Mutant City doesn't need heroes. It needs people too stubborn to die.</p>
+      </div>
+      <div class="character-grid">
+        <article class="character hardcase">
+          <div class="number">87</div>
+          <span>PROJECT TITAN // SUBJECT 87</span>
+          <h3>HARDCASE 87</h3>
+          <p>Heavy weapons. Bad manners. A classified past encoded somewhere inside the mutation.</p>
+          <a href="https://tacticalterrordivision.com/hardcase-87.html">OPEN DOSSIER →</a>
+        </article>
+        <article class="character nikki">
+          <div class="number">NN</div>
+          <span>VELOCITY ASSET // COLLAPSE SURVIVOR</span>
+          <h3>NIKKI NITRO</h3>
+          <p>Fast, fierce and fuelled by revenge. She heard the city breathe before anyone believed her.</p>
+          <a href="https://tacticalterrordivision.com/nikki-nitro.html">OPEN DOSSIER →</a>
+        </article>
+        <article class="character zero">
+          <div class="number">0</div>
+          <span>ORIGIN UNKNOWN // STATUS HOSTILE</span>
+          <h3>TITAN ZERO</h3>
+          <p>The first successful failure. The thing under the city knows Hardcase—and remembers him.</p>
+          <a href="classified.html">OPEN BLACK FILE →</a>
+        </article>
+      </div>
+    </section>
 
-<section class="section">
-  <div class="section-head">
-    <div><div class="code">CURRENT INCIDENT // EYES ONLY</div><h2 class="display">BLACK VAULT STATUS</h2></div>
-    <div class="code">UNAUTHORIZED KNOWLEDGE // ACTIVE</div>
-  </div>
-  <div class="intel">
-    <article class="brief">
-      <div class="code">FILE // SUBJECT OMEGA</div>
-      <h3 class="display">THE WATER LEARNED TO HUNT.</h3>
-      <p>Project Omega was not a containment failure. It was a cultivation program. The harbour was never the prison. It was the nursery.</p>
-      <div class="cta"><a class="btn" href="https://tacticalterrordivision.com/comics.html">READ RECOVERED FILE →</a></div>
-    </article>
-    <article class="vault">
-      <div class="sig">◉</div>
-      <div class="code">ORDER DIRECTIVE // LEVEL NULL</div>
-      <h3 class="display">THE DIVISION REMEMBERS.</h3>
-      <p>Names are temporary. Signals persist. Every dead node leaves instructions for the next one.</p>
-      <div class="code pink">DO NOT ASK WHO BUILT THE FIRST TERMINAL.</div>
-    </article>
-  </div>
+    <section class="section city-grid" id="city">
+      <article class="visual-card broadcast">
+        <img src="assets/mutant-city-broadcast.webp" alt="Mutant City contaminated broadcast terminal">
+        <div>
+          <span>LIVE FEED // SIGNAL INFECTED</span>
+          <h2>THE CITY IS<br>WATCHING.</h2>
+          <p>Emergency signals, contaminated tapes and propaganda recovered from the citywide breach.</p>
+          <a class="button primary" href="vhs.html">HIJACK THE BROADCAST</a>
+        </div>
+      </article>
+      <article class="visual-card vault">
+        <img src="assets/mutant-city-vault.webp" alt="Mutant City toxic halo vault">
+        <div>
+          <span>BLACK SITE // BIOLOGICAL APERTURE</span>
+          <h2>THE TERMINAL<br>BELOW.</h2>
+          <p>The old Titan Terminal survives underneath Mutant City as a restricted archive of experiments, failures and evidence.</p>
+          <a class="button toxic" href="classified.html">ENTER RESTRICTED ARCHIVE</a>
+        </div>
+      </article>
+    </section>
 
-  <div class="whispers">
-    <div class="whisper"><b>CERBERUS</b><p>PERIMETER WATCH // THREE HEADS // ZERO WITNESSES.</p></div>
-    <div class="whisper"><b>BLACK SUN</b><p>SIGNAL EVENT // SOURCE UNKNOWN // DO NOT LOOK DIRECTLY AT FEED.</p></div>
-    <div class="whisper"><b>SILENT CROWN</b><p>COMMAND AUTHORITY // ABOVE DIRECTORATE // FILE ACCESS DENIED.</p></div>
-  </div>
-</section>
+    <section class="mutation-callout" id="join">
+      <img src="assets/mutant-city-logo.webp" alt="">
+      <div>
+        <span>TRANSMISSION LIST // RECRUITMENT ACTIVE</span>
+        <h2>JOIN THE MUTATION</h2>
+        <p>New comics, breach reports, classified drops and launch transmissions—delivered before containment notices arrive.</p>
+      </div>
+      <a class="button toxic" href="mailto:TTDHQ@proton.me?subject=JOIN%20THE%20MUTATION">ENLIST BY EMAIL →</a>
+    </section>
+  </main>
 
-<section class="section">
-  <div class="section-head">
-    <div><div class="code">LOCAL RELICS // ORIGINAL NODE</div><h2 class="display">BURIED ARCHIVES</h2></div>
-    <div class="code">OLD SYSTEMS RETAINED // SOME STILL LISTEN</div>
-  </div>
-  <div class="legacy">
-    <a href="map.html"><b>Titan City</b><small>Original district grid</small></a>
-    <a href="comics.html"><b>Comic Archive</b><small>Legacy local evidence</small></a>
-    <a href="vhs.html"><b>VHS Vault</b><small>Operation Blind Spots</small></a>
-    <a href="#top"><b>Node Zero</b><small>Return to the sealed entrance</small></a>
-  </div>
-</section>
+  <footer>
+    <div><b>MUTANT CITY</b> // A TACTICAL TERROR DIVISION UNIVERSE</div>
+    <div class="footer-links">
+      <a href="https://tacticalterrordivision.com/">TTD HQ</a>
+      <a href="comics.html">COMICS</a>
+      <a href="map.html">DISTRICTS</a>
+      <a href="classified.html">TERMINAL</a>
+      <a href="https://www.instagram.com/titanttd_official/">INSTAGRAM</a>
+    </div>
+    <small>CONTAINMENT FAILED // MUTATION CONTINUES</small>
+  </footer>
 
-<footer><div class="foot">
-  <span>TTD // TITAN TERMINAL // FORBIDDEN NODE</span>
-  <span class="pink">THE PUBLIC NETWORK IS NOT THE NETWORK</span>
-  <span>RESIST // ADAPT // EVOLVE</span>
-</div></footer>
-</main>
-
-<script>
-const veil=document.getElementById('veil');
-document.getElementById('enter-node').addEventListener('click',()=>{veil.classList.add('open');sessionStorage.setItem('ttdNodeOpen','1')});
-if(sessionStorage.getItem('ttdNodeOpen')==='1')veil.classList.add('open');
-
-function tick(){
-  const n=new Date();
-  document.getElementById('node-time').textContent=n.toLocaleTimeString('en-AU',{hour12:false,timeZone:'Australia/Adelaide'});
-}
-tick();setInterval(tick,1000);
-
-const hero=document.querySelector('.hero');let n=0;
-setInterval(()=>{n++;hero.style.filter=n%23===0?'contrast(1.08) brightness(.92) hue-rotate(-5deg)':'none'},520);
-</script>
+  <nav class="mobile-dock" aria-label="Mobile navigation">
+    <a href="#top">CITY</a>
+    <a href="#incident">ISSUE</a>
+    <a class="dock-buy" href="https://www.paypal.com/ncp/payment/HSCU7LTX6WRTN">BUY</a>
+    <a href="map.html">MAP</a>
+    <a href="classified.html">TERMINAL</a>
+  </nav>
 </body>
 </html>
